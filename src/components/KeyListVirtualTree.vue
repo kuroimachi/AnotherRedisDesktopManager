@@ -263,8 +263,7 @@ export default {
           if (!this.multiOperating) {
             this.$refs.veTree.setChecked(this.rightClickNode.key, true);
             this.showMultiSelect();
-          }
-          else {
+          } else {
             this.exportBatch();
           }
 

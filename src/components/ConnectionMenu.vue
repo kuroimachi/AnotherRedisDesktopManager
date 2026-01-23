@@ -344,8 +344,7 @@ export default {
           }).finally(() => {
             this.$set(this.$refs.importCMDNotify,
               'innerHTML',
-              `Succ: ${succ.length}, Fail: ${fail.length}`
-            );
+              `Succ: ${succ.length}, Fail: ${fail.length}`);
           });
         });
 

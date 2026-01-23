@@ -28,6 +28,25 @@
             <el-input v-model="connection.username" placeholder='ACL in Redis >= 6.0' autocomplete="off"></el-input>
           </el-form-item>
 
+          <el-form-item :label="$t('message.group')">
+            <el-select
+              v-model="connection.group"
+              placeholder="Select or input group"
+              filterable
+              allow-create
+              default-first-option
+              clearable
+              size="small"
+            >
+              <el-option
+                v-for="group in allGroups"
+                :key="group"
+                :label="group"
+                :value="group"
+              ></el-option>
+            </el-select>
+          </el-form-item>
+
           <el-form-item :label="$t('message.separator')">
             <el-tooltip effect="dark">
               <div slot="content">{{ $t('message.separator_tip') }}</div>
@@ -203,6 +222,7 @@ export default {
         auth: '',
         username: '',
         name: '',
+        group: '',
         separator: ':',
         cluster: false,
         connectionReadOnly: false,
@@ -245,6 +265,11 @@ export default {
     dialogTitle() {
       return this.editMode ? this.$t('message.edit_connection')
         : this.$t('message.new_connection');
+    },
+    allGroups() {
+      const connections = storage.getConnections(true);
+      const groups = [...new Set(connections.map(conn => conn.group).filter(Boolean))];
+      return groups.sort();
     },
   },
   methods: {
