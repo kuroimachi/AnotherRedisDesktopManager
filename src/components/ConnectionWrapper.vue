@@ -244,15 +244,66 @@ export default {
 <style type="text/css">
   /*menu ul*/
   .connection-menu {
-    margin-bottom: 8px;
-    padding-right: 6px;
+    margin-bottom: 12px;
+    padding-right: 0;
     border-right: 0;
+    background-color: transparent;
+  }
+
+  .connection-menu li.el-submenu {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .connection-menu li.el-submenu:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .dark-mode .connection-menu li.el-submenu {
+    background-color: #2d3748;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark-mode .connection-menu li.el-submenu:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   }
 
   .connection-menu.menu-with-custom-color li.el-submenu {
-    border-left: 5px solid var(--menu-color);
-    border-radius: 4px 0 0 4px;
-    padding-left: 3px;
+    border-left: 4px solid var(--menu-color);
+    border-radius: 8px;
+    padding-left: 0;
+  }
+
+  .connection-menu .el-submenu__title {
+    padding: 12px 16px;
+    height: auto;
+    line-height: normal;
+    transition: all 0.3s ease;
+  }
+
+  .connection-menu .el-submenu__title:hover {
+    background-color: #f8fafc;
+  }
+
+  .dark-mode .connection-menu .el-submenu__title {
+    color: #f1f5f9;
+  }
+
+  .dark-mode .connection-menu .el-submenu__title:hover {
+    background-color: #374151;
+  }
+
+  .connection-menu .el-submenu__icon-arrow {
+    right: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .dark-mode .connection-menu .el-submenu__icon-arrow {
+    color: #94a3b8;
   }
 
   /*this error shows first*/

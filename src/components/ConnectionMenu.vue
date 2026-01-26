@@ -399,55 +399,146 @@ export default {
 
 <style type="text/css">
   .connection-menu-title {
-    margin-left: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 0;
+    width: 100%;
   }
 
   .connection-menu .connection-name {
-    margin-right: 115px;
-    padding-right: 6px;
+    flex: 1;
+    margin-right: 16px;
+    padding-right: 0;
     word-break: keep-all;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight: bold;
-    font-size: 1.04em;
+    font-weight: 600;
+    font-size: 14px;
+    color: #1e293b;
+    transition: color 0.3s ease;
   }
+  
+  .dark-mode .connection-menu .connection-name {
+    color: #f1f5f9;
+  }
+  
+  .connection-menu .connection-name:hover {
+    color: #409EFF;
+  }
+  
+  .dark-mode .connection-menu .connection-name:hover {
+    color: #60a5fa;
+  }
+
   .connection-menu .connection-opt-icons {
-    /*width: 30px;*/
-    /*float: right;
-    margin-right: 28px;*/
-    position: absolute;
-    right: 25px;
-    top: -2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: static;
   }
+  
   .connection-menu .connection-right-icon {
-    display: inline-block;
-    font-size: 1.16em;
-    /*font-weight: bold;*/
-    padding: 3px;
-    margin-right: -4px;
-    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 8px;
+    margin-right: 0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    color: #64748b;
   }
+  
+  .dark-mode .connection-menu .connection-right-icon {
+    color: #94a3b8;
+  }
+  
   .connection-menu .connection-right-icon:hover {
-    /*color: #85878a;*/
-    background: #dcdee0;
-    border-radius: 3px;
+    background: #f1f5f9;
+    color: #475569;
+    transform: translateY(-1px);
   }
+  
   .dark-mode .connection-menu .connection-right-icon:hover {
-    background: #58707b;
+    background: #374151;
+    color: #e2e8f0;
+  }
+  
+  .connection-menu .connection-right-icon.fa-home {
+    color: #10b981;
+  }
+  
+  .dark-mode .connection-menu .connection-right-icon.fa-home {
+    color: #34d399;
+  }
+  
+  .connection-menu .connection-right-icon.fa-terminal {
+    color: #f59e0b;
+  }
+  
+  .dark-mode .connection-menu .connection-right-icon.fa-terminal {
+    color: #fbbf24;
+  }
+  
+  .connection-menu .connection-right-icon.el-icon-refresh {
+    color: #6366f1;
+  }
+  
+  .dark-mode .connection-menu .connection-right-icon.el-icon-refresh {
+    color: #818cf8;
+  }
+  
+  .connection-menu .connection-right-icon.el-icon-menu {
+    color: #64748b;
+  }
+  
+  .dark-mode .connection-menu .connection-right-icon.el-icon-menu {
+    color: #94a3b8;
   }
 
   /*fix more operation btn icon vertical-center*/
   .connection-menu-more {
-    vertical-align: baseline;
+    vertical-align: middle;
   }
+  
   /*more operation ul>ico*/
+  .connection-menu-more-ul {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 4px 0;
+  }
+  
+  .dark-mode .connection-menu-more-ul {
+    background-color: #1f2937;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  .connection-menu-more-ul .el-dropdown-menu__item {
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .connection-menu-more-ul .el-dropdown-menu__item:hover {
+    background-color: #f1f5f9;
+  }
+  
+  .dark-mode .connection-menu-more-ul .el-dropdown-menu__item {
+    color: #f1f5f9;
+  }
+  
+  .dark-mode .connection-menu-more-ul .el-dropdown-menu__item:hover {
+    background-color: #374151;
+  }
+  
   .connection-menu-more-ul .more-operate-ico {
-    width: 13px;
+    width: 16px;
     text-align: center;
+    margin-right: 8px;
   }
 
   .font-weight-bold {
-    font-weight: bold;
+    font-weight: 600;
   }
 </style>
