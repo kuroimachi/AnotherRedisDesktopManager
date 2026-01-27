@@ -20,10 +20,25 @@
 
     <!-- key ttl -->
     <div class="key-header-item key-ttl-input">
+      <div v-if="!isTTLEditing" class="ttl-display-wrapper" @click="isTTLEditing = true">
+        <el-input
+          :value="formattedTTL"
+          readonly
+          :title="$util.leftTime(keyTTL)">
+          <span slot="prepend">TTL</span>
+          <i class="fa fa-pencil el-input__icon cursor-pointer"
+          slot="suffix"
+          :title="$t('message.click_to_edit')"
+          @click.stop="isTTLEditing = true">
+        </i>
+        </el-input>
+      </div>
       <el-input
+        v-else
         type="number"
         v-model="keyTTL"
         @keyup.enter.native="ttlKey"
+        @blur="ttlKey"
         :title="$util.leftTime(keyTTL)">
         <span slot="prepend">TTL</span>
         <!-- remove expire -->
@@ -81,7 +96,22 @@ export default {
       binary: false,
       autoRefresh: false,
       refreshInterval: 2000,
+      isTTLEditing: false,
     };
+  },
+  computed: {
+    formattedTTL() {
+      if (this.keyTTL === -1) {
+        return '-1';
+      } else if (this.keyTTL > 0) {
+        const hours = Math.floor(this.keyTTL / 3600);
+        const minutes = Math.floor((this.keyTTL % 3600) / 60);
+        const seconds = this.keyTTL % 60;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      } else {
+        return '-1';
+      }
+    }
   },
   props: ['client', 'redisKey', 'keyType', 'hotKeyScope'],
   methods: {
@@ -188,7 +218,9 @@ export default {
     ttlKey() {
       // -1 persist key
       if (this.keyTTL == -1) {
-        return this.persistKey();
+        this.persistKey();
+        this.isTTLEditing = false;
+        return;
       }
 
       // ttl <= 0
@@ -199,10 +231,12 @@ export default {
         )
           .then(() => {
             this.setTTL(true);
+            this.isTTLEditing = false;
           })
           .catch(() => {});
       } else {
         this.setTTL();
+        this.isTTLEditing = false;
       }
     },
     setTTL(keyDeleted = false) {
@@ -225,6 +259,7 @@ export default {
     persistKey() {
       this.client.persist(this.redisKey).then(() => {
         this.initShow();
+        this.isTTLEditing = false;
         this.$message.success(this.$t('message.modify_success'));
       }).catch((e) => {
         this.$message.error(`Persist Error: ${e.message}`);
@@ -289,6 +324,10 @@ export default {
     margin-right: 15px;
     margin-bottom: 10px;
   }
+  
+  .key-header-item.key-ttl-input .el-input {
+    width: 100%;
+  }
   /*hide number input button*/
   .key-header-item.key-ttl-input input::-webkit-inner-spin-button,
   .key-header-item.key-ttl-input input::-webkit-outer-spin-button {
@@ -302,6 +341,21 @@ export default {
   /*refresh btn rotating*/
   .key-header-info .key-header-btn-con .rotating .el-icon-refresh{
     animation: rotate 1.5s linear infinite;
+  }
+
+  /* Ensure el-input matches exactly */
+  .key-header-item.key-ttl-input .el-input {
+    width: 100%;
+  }
+  
+  /* TTL display wrapper */
+  .ttl-display-wrapper {
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .ttl-display-wrapper .el-input {
+    cursor: pointer;
   }
 
 </style>
