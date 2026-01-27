@@ -135,10 +135,7 @@ export default {
 
       // key clicked
       if (!data.children) {
-        let newTab = false;
-        event && (event.ctrlKey || event.metaKey) && (newTab = true);
-
-        this.clickKey(Buffer.from(data.nameBuffer.data), newTab);
+        this.clickKey(Buffer.from(data.nameBuffer.data), true);
       }
       // folder click, do nothing
     },
@@ -174,7 +171,7 @@ export default {
 
       // up & down, key node
       if (['ArrowUp', 'ArrowDown'].includes(event.key) && !data.children) {
-        this.clickKey(Buffer.from(data.nameBuffer.data));
+        this.clickKey(Buffer.from(data.nameBuffer.data), true);
       }
     },
     showMultiSelect() {
@@ -312,7 +309,7 @@ export default {
       this.hideMultiSelect();
       this.$emit('exportBatch', keys);
     },
-    clickKey(key, newTab = false) {
+    clickKey(key, newTab = true) {
       this.$bus.$emit('clickedKey', this.client, key, newTab);
     },
     multipleCheck(node, event) {

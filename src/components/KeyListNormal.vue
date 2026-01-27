@@ -23,7 +23,7 @@ export default {
         {
           name: this.$t('message.open'),
           click: (clickValue, event) => {
-            this.clickKey(clickValue, event, false);
+            this.clickKey(clickValue, event, true);
           },
         },
         {
@@ -38,10 +38,9 @@ export default {
   props: ['client', 'config', 'keyList'],
   components: { RightClickMenu },
   methods: {
-    clickKey(key, event = null, newTab = false) {
+    clickKey(key, event = null, newTab = true) {
       // highlight clicked key
       event && this.hightKey(event);
-      event && (event.ctrlKey || event.metaKey) && (newTab = true);
       this.$bus.$emit('clickedKey', this.client, key, newTab);
     },
     hightKey(event) {
