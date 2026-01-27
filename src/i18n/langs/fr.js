@@ -135,6 +135,7 @@ const fr = {
     password: 'Le mot de passe',
     connection_name: 'Nom d\'usage',
     separator: 'Délimiteur',
+    ungrouped: 'Sans groupe',
     timeout: 'Temps libre',
     private_key: 'Clé privée',
     public_key: 'Clé publique',

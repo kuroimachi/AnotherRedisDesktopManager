@@ -135,6 +135,7 @@ const ua = {
     password: 'Пароль',
     connection_name: 'Спеціальна назва',
     separator: 'Cепаратор',
+    ungrouped: 'Без групи',
     timeout: 'Час вийшов',
     private_key: 'Приватний ключ',
     public_key: 'Відкритий ключ',

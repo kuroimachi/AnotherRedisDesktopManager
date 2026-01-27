@@ -135,6 +135,7 @@ const tw = {
     password: '密碼',
     connection_name: '連接名稱',
     separator: '分隔符',
+    ungrouped: '未分組',
     timeout: '超時',
     private_key: '私鑰',
     public_key: '公鑰',

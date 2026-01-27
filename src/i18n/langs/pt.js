@@ -135,6 +135,7 @@ const pt = {
     password: 'Senha',
     connection_name: 'Nome personalizado',
     separator: 'Separador',
+    ungrouped: 'Sem grupo',
     timeout: 'Tempo esgotado',
     private_key: 'Chave privada',
     public_key: 'Chave pública',

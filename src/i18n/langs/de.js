@@ -135,6 +135,7 @@ const de = {
     password: 'Passwort',
     connection_name: 'Benutzerdefinierter Name',
     separator: 'Separator',
+    ungrouped: 'Ungrouped',
     timeout: 'Auszeit',
     private_key: 'Privat Schlüssel',
     public_key: 'Öffentlicher Schlüssel',

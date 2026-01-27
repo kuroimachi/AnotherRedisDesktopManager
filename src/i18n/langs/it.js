@@ -135,6 +135,7 @@ const it = {
     password: 'Parola d\'ordine',
     connection_name: 'Nome personalizzato',
     separator: 'Delimitatore',
+    ungrouped: 'Senza gruppo',
     timeout: 'Tempo scaduto',
     private_key: 'Chiave privata',
     public_key: 'Chiave pubblica',

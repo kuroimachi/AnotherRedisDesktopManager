@@ -135,6 +135,7 @@ const ko = {
     password: '비밀번호',
     connection_name: '이름',
     separator: '구분자',
+    ungrouped: '그룹 없음',
     timeout: '연결시도 시간제한',
     private_key: '개인키',
     public_key: '공개키',

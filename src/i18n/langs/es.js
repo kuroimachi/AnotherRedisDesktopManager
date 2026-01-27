@@ -135,6 +135,7 @@ const es = {
     password: 'Password',
     connection_name: 'Nombre de la Conexión',
     separator: 'Separador',
+    ungrouped: 'Sin grupo',
     timeout: 'Timeout',
     private_key: 'Clave Privada',
     public_key: 'Clave Pública',

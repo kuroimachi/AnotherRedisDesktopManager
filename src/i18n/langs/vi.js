@@ -135,6 +135,7 @@ const vi = {
     password: 'Mật khẩu',
     connection_name: 'Tên kết nối',
     separator: 'Dấu phân cách',
+    ungrouped: 'Không nhóm',
     timeout: 'Thời gian chờ',
     private_key: 'Khóa riêng',
     public_key: 'Khóa công khai',

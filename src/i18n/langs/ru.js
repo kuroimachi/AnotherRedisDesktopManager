@@ -135,6 +135,7 @@ const ru = {
     password: 'Пароль',
     connection_name: 'Имя соединения',
     separator: 'Pазделитель',
+    ungrouped: 'Без группы',
     timeout: 'Tайм-аут',
     private_key: 'Закрытый ключ',
     public_key: 'Открытый ключ',

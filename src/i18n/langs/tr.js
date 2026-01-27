@@ -135,6 +135,7 @@ const tr = {
     password: 'Parola',
     connection_name: 'Bağlantı adı',
     separator: 'Ayırıcı',
+    ungrouped: 'Grupsuz',
     timeout: 'Zaman aşımı',
     private_key: 'Özel anahtar',
     public_key: 'Genel anahtar',
