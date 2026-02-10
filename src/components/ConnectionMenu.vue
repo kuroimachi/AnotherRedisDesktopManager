@@ -65,9 +65,6 @@
         <el-dropdown-item @click.native='execFileCMDS'>
           <span><i class='more-operate-ico fa fa-file-code-o'></i>&nbsp;{{ $t('message.import') }} CMD</span>
         </el-dropdown-item>
-        <el-dropdown-item @click.native='flushDB'>
-          <span><i class='more-operate-ico fa fa-exclamation-triangle'></i>&nbsp;{{ $t('message.flushdb') }}</span>
-        </el-dropdown-item>
 
       </el-dropdown-menu>
     </el-dropdown>
@@ -363,33 +360,7 @@ export default {
         });
       });
     },
-    flushDB() {
-      if (!this.client) {
-        return;
-      }
 
-      const preDB = this.client.condition ? this.client.condition.select : 0;
-      const inputTxt = 'y';
-      const placeholder = this.$t('message.flushdb_prompt', { txt: inputTxt });
-
-      this.$prompt(this.$t('message.confirm_flush_db', { db: preDB }), {
-        inputValidator: value => ((value == inputTxt) ? true : placeholder),
-        inputPlaceholder: placeholder,
-      })
-        .then((value) => {
-          this.client.flushdb().then((reply) => {
-            if (reply == 'OK') {
-              this.$message.success({
-                message: this.$t('message.delete_success'),
-                duration: 1000,
-              });
-
-              this.refreshConnection();
-            }
-          }).catch((e) => { this.$message.error(e.message); });
-        })
-        .catch((e) => {});
-    },
     changeColor(color) {
       this.$emit('changeColor', color);
     },
