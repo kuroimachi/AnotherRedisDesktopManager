@@ -201,7 +201,7 @@ export default {
   },
 
   getRedisOptions(host, port, auth, config) {
-    return {
+    const options = {
       // add additional host+port to options for "::1"
       host,
       port,
@@ -220,11 +220,30 @@ export default {
       // return int as string to avoid big number issues
       stringNumbers: true,
     };
+
+    // Add proxy support
+    if (config.proxyOptions) {
+      const proxyOptions = config.proxyOptions;
+      options.proxy = {
+        host: proxyOptions.host,
+        port: proxyOptions.port,
+        protocol: proxyOptions.type,
+      };
+
+      if (proxyOptions.username) {
+        options.proxy.auth = {
+          username: proxyOptions.username,
+          password: proxyOptions.password || '',
+        };
+      }
+    }
+
+    return options;
   },
 
 
   getSentinelOptions(host, port, auth, config) {
-    return {
+    const options = {
       sentinels: [{ host, port }],
       sentinelPassword: auth,
       password: config.sentinelOptions.nodePassword,
@@ -238,6 +257,25 @@ export default {
       username: config.username ? config.username : undefined,
       tls: config.sslOptions ? this.getTLSOptions(config.sslOptions) : undefined,
     };
+
+    // Add proxy support
+    if (config.proxyOptions) {
+      const proxyOptions = config.proxyOptions;
+      options.proxy = {
+        host: proxyOptions.host,
+        port: proxyOptions.port,
+        protocol: proxyOptions.type,
+      };
+
+      if (proxyOptions.username) {
+        options.proxy.auth = {
+          username: proxyOptions.username,
+          password: proxyOptions.password || '',
+        };
+      }
+    }
+
+    return options;
   },
 
 
