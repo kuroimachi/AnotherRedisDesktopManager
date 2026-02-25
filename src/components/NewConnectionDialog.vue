@@ -60,6 +60,13 @@
       <el-form-item label="">
         <el-checkbox v-model="sshOptionsShow">SSH</el-checkbox>
         <el-checkbox v-model="sslOptionsShow">SSL</el-checkbox>
+        <el-checkbox v-model="proxyOptionsShow">
+          Proxy
+          <el-popover trigger="hover">
+            <i slot="reference" class="el-icon-question"></i>
+            {{ $t('message.proxy_faq') }}
+          </el-popover>
+        </el-checkbox>
         <el-checkbox v-model="sentinelOptionsShow">
           Sentinel
           <el-popover trigger="hover">
@@ -198,6 +205,45 @@
       </el-row>
     </el-form>
 
+    <!-- Proxy connection form -->
+    <el-form v-if="proxyOptionsShow" v-show="proxyOptionsShow" label-position='top' label-width="90px">
+      <fieldset>
+        <legend>Proxy</legend>
+      </fieldset>
+
+      <el-row :gutter=20>
+        <!-- left col -->
+        <el-col :span=12>
+          <el-form-item :label="$t('message.proxy_type')" required>
+            <el-select v-model="connection.proxyOptions.type" placeholder="Select proxy type">
+              <el-option label="HTTP" value="http"></el-option>
+              <el-option label="HTTPS" value="https"></el-option>
+              <el-option label="SOCKS5" value="socks5"></el-option>
+            </el-select>
+          </el-form-item>
+
+          <el-form-item :label="$t('message.host')" required>
+            <el-input v-model="connection.proxyOptions.host" autocomplete="off" placeholder="Proxy host"></el-input>
+          </el-form-item>
+
+          <el-form-item :label="$t('message.username')">
+            <el-input v-model="connection.proxyOptions.username" autocomplete="off" placeholder="Proxy username"></el-input>
+          </el-form-item>
+        </el-col>
+
+        <!-- right col -->
+        <el-col :span=12>
+          <el-form-item :label="$t('message.port')" required>
+            <el-input type='number' v-model="connection.proxyOptions.port" autocomplete="off" placeholder="Proxy port"></el-input>
+          </el-form-item>
+
+          <el-form-item :label="$t('message.password')">
+            <InputPassword v-model="connection.proxyOptions.password" placeholder="Proxy password"></InputPassword>
+          </el-form-item>
+        </el-col>
+      </el-row>
+    </el-form>
+
     <div slot="footer" class="dialog-footer">
       <el-button @click="dialogVisible = false">{{ $t('el.messagebox.cancel') }}</el-button>
       <el-button type="info" @click="testConnection" :loading="testing">{{ $t('message.test_connection') }}</el-button>
@@ -248,11 +294,19 @@ export default {
           masterName: 'mymaster',
           nodePassword: '',
         },
+        proxyOptions: {
+          type: 'http',
+          host: '',
+          port: 8080,
+          username: '',
+          password: '',
+        },
       },
       connectionEmpty: {},
       sshOptionsShow: false,
       sslOptionsShow: false,
       sentinelOptionsShow: false,
+      proxyOptionsShow: false,
     };
   },
   components: { FileInput, InputPassword },
@@ -286,6 +340,7 @@ export default {
         this.sshOptionsShow = !!this.config.sshOptions;
         this.sslOptionsShow = !!this.config.sslOptions;
         this.sentinelOptionsShow = !!this.config.sentinelOptions;
+        this.proxyOptionsShow = !!this.config.proxyOptions;
         // recovery connection before edit
         const connection = Object.assign({}, this.connectionEmpty, this.config);
         this.connection = JSON.parse(JSON.stringify(connection));
@@ -295,6 +350,7 @@ export default {
         this.sshOptionsShow = false;
         this.sslOptionsShow = false;
         this.sentinelOptionsShow = false;
+        this.proxyOptionsShow = false;
         this.connection = JSON.parse(JSON.stringify(this.connectionEmpty));
       }
     },
@@ -318,6 +374,10 @@ export default {
 
       if (!this.sentinelOptionsShow || !config.sentinelOptions.masterName) {
         delete config.sentinelOptions;
+      }
+
+      if (!this.proxyOptionsShow || !config.proxyOptions.host) {
+        delete config.proxyOptions;
       }
 
       const oldKey = storage.getConnectionKey(this.config);
@@ -347,6 +407,10 @@ export default {
 
       if (!this.sentinelOptionsShow || !config.sentinelOptions.masterName) {
         delete config.sentinelOptions;
+      }
+
+      if (!this.proxyOptionsShow || !config.proxyOptions.host) {
+        delete config.proxyOptions;
       }
 
       this.testing = true;
@@ -430,6 +494,7 @@ export default {
       this.sslOptionsShow = !!this.config.sslOptions;
       this.sshOptionsShow = !!this.config.sshOptions;
       this.sentinelOptionsShow = !!this.config.sentinelOptions;
+      this.proxyOptionsShow = !!this.config.proxyOptions;
 
       this.connection = Object.assign({}, this.connection, this.config);
     }

@@ -38,6 +38,8 @@ const en = {
     click_enter_to_rename: 'Click Or Press Enter To Rename',
     click_enter_to_ttl: 'Click Or Press Enter To Modify TTL',
     test_connection: 'Test Connection',
+    proxy_type: 'Proxy Type',
+    proxy_faq: 'Connect to Redis through a proxy server, supporting HTTP, HTTPS and SOCKS5 types',
     confirm_to_delete_key: 'Confirm To Delete {key} ?',
     confirm_to_rename_key: 'Confirm To Rename {old} -> {new} ?',
     edit_line: 'Edit Line',
