@@ -37,6 +37,7 @@ const cn = {
     refresh_success: '刷新成功',
     click_enter_to_rename: '点击或者按Enter键来重命名',
     click_enter_to_ttl: '点击或者按Enter键来修改过期时间',
+    test_connection: '测试连接',
     confirm_to_delete_key: '确认删除 {key} ?',
     confirm_to_rename_key: '确认重命名 {old} -> {new} ?',
     edit_line: '修改行',

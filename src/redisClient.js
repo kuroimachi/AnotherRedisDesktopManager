@@ -207,8 +207,8 @@ export default {
       port,
       family: 0,
 
-      connectTimeout: 30000,
-      retryStrategy: times => this.retryStragety(times, { host, port }),
+      connectTimeout: config.testing ? 5000 : 30000, // Shorter timeout for tests
+      retryStrategy: config.testing ? () => false : times => this.retryStragety(times, { host, port }), // No retries for tests
       enableReadyCheck: false,
       connectionName: config.connectionName ? config.connectionName : null,
       password: auth,
@@ -222,14 +222,15 @@ export default {
     };
   },
 
+
   getSentinelOptions(host, port, auth, config) {
     return {
       sentinels: [{ host, port }],
       sentinelPassword: auth,
       password: config.sentinelOptions.nodePassword,
       name: config.sentinelOptions.masterName,
-      connectTimeout: 30000,
-      retryStrategy: times => this.retryStragety(times, { host, port }),
+      connectTimeout: config.testing ? 5000 : 30000, // Shorter timeout for tests
+      retryStrategy: config.testing ? () => false : times => this.retryStragety(times, { host, port }), // No retries for tests
       enableReadyCheck: false,
       connectionName: config.connectionName ? config.connectionName : null,
       db: config.db ? config.db : undefined,
@@ -238,6 +239,7 @@ export default {
       tls: config.sslOptions ? this.getTLSOptions(config.sslOptions) : undefined,
     };
   },
+
 
   getClusterOptions(redisOptions, natMap = {}) {
     return {

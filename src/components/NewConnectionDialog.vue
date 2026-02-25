@@ -200,6 +200,7 @@
 
     <div slot="footer" class="dialog-footer">
       <el-button @click="dialogVisible = false">{{ $t('el.messagebox.cancel') }}</el-button>
+      <el-button type="info" @click="testConnection" :loading="testing">{{ $t('message.test_connection') }}</el-button>
       <el-button type="primary" @click="editConnection">{{ $t('el.messagebox.confirm') }}</el-button>
     </div>
   </el-dialog>
@@ -207,6 +208,7 @@
 
 <script type="text/javascript">
 import storage from '@/storage';
+import redisClient from '@/redisClient';
 import FileInput from '@/components/FileInput';
 import InputPassword from '@/components/InputPassword';
 
@@ -216,6 +218,7 @@ export default {
       dialogVisible: false,
       labelPosition: 'top',
       oldKey: '',
+      testing: false,
       connection: {
         host: '',
         port: '',
@@ -323,6 +326,100 @@ export default {
       this.dialogVisible = false;
       this.$emit('editConnectionFinished', config);
     },
+
+    testConnection() {
+      const config = JSON.parse(JSON.stringify(this.connection));
+
+      if (this.sentinelOptionsShow && config.cluster) {
+        return this.$message.error('Sentinel & Cluster cannot be checked together!');
+      }
+
+      !config.host && (config.host = '127.0.0.1');
+      !config.port && (config.port = 6379);
+
+      if (!this.sshOptionsShow || !config.sshOptions.host) {
+        delete config.sshOptions;
+      }
+
+      if (!this.sslOptionsShow) {
+        delete config.sslOptions;
+      }
+
+      if (!this.sentinelOptionsShow || !config.sentinelOptions.masterName) {
+        delete config.sentinelOptions;
+      }
+
+      this.testing = true;
+
+      // Create a test-specific config with shorter timeout
+      const testConfig = JSON.parse(JSON.stringify(config));
+      testConfig.testing = true; // Add a flag to identify test connections
+
+      const testConnection = async () => {
+        let client = null;
+        let timeoutId = null;
+        
+        try {
+          // Set an overall timeout for the entire test operation
+          const overallTimeout = new Promise((_, reject) => {
+            timeoutId = setTimeout(() => {
+              reject(new Error('Connection test timed out after 10 seconds'));
+            }, 10000); // 10 second overall timeout
+          });
+
+          // Create connection with test-specific options
+          const connectionPromise = (async () => {
+            if (testConfig.sshOptions) {
+              return await redisClient.createSSHConnection(testConfig.sshOptions, testConfig.host, testConfig.port, testConfig.auth, testConfig);
+            } else {
+              return await redisClient.createConnection(testConfig.host, testConfig.port, testConfig.auth, testConfig);
+            }
+          })();
+
+          // Race the connection against the overall timeout
+          client = await Promise.race([connectionPromise, overallTimeout]);
+
+          // Test the connection with a simple command
+          await new Promise((resolve, reject) => {
+            client.ping((err, result) => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(result);
+              }
+            });
+          });
+
+          this.$message.success('Connection test successful!');
+        } catch (error) {
+          this.$message.error(`Connection test failed: ${error.message}`);
+        } finally {
+          // Clear the overall timeout
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          
+          // Ensure client is closed
+          if (client) {
+            try {
+              if (client.disconnect) {
+                client.disconnect();
+              } else if (client.quit) {
+                client.quit();
+              }
+            } catch (e) {
+              // Ignore close errors
+            }
+          }
+          this.testing = false;
+        }
+      };
+
+      testConnection();
+    },
+
+
+
   },
   mounted() {
     // back up the empty connection
