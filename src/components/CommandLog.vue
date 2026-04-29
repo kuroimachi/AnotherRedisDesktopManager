@@ -102,19 +102,19 @@ export default {
     margin-top: 10vh !important;
   }
   .command-log-list {
-    padding: 6px;
+    padding: 8px;
     min-height: 150px;
     height: calc(90vh - 307px);
-    border: 1px solid grey;
-    border-radius: 5px;
+    border: 1px solid var(--ui-border-strong);
+    border-radius: 4px;
     margin-bottom: 12px;
   }
 
   .command-log-list .command-cmd {
-    font-weight: bold;
-    font-size: 110%;
+    font-weight: 600;
+    font-size: 14px;
   }
   .command-log-list .command-cost {
-    color: #e59090;
+    color: #f56c6c;
   }
 </style>

@@ -515,15 +515,15 @@ export default {
   }
 
   .new-connection-dailog fieldset {
-    border-width: 2px 0 0 0;
-    border-color: #fff;
-    font-weight: bold;
-    color: #bdc5ce;
-    font-size: 105%;
-    margin-bottom: 3px;
+    border-width: 1px 0 0 0;
+    border-color: var(--ui-border-strong);
+    font-weight: 600;
+    color: var(--ui-text-muted);
+    font-size: 14px;
+    margin-bottom: 6px;
   }
   .dark-mode .new-connection-dailog fieldset {
-    color: #416586;
-    border-color: #7b95ad;
+    color: #adbac1;
+    border-color: #4b5d66;
   }
 </style>

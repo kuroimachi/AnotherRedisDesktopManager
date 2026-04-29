@@ -67,8 +67,8 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
-    color: #292f31;
-    font-size: 0.9em;
+    color: var(--ui-text);
+    font-size: 14px;
     line-height: 1.52;
     /*margin-right: 3px;*/
     padding-left: 6px;
@@ -78,17 +78,17 @@ export default {
   }
   .connection-menu .key-list .key-item:hover {
     /*color: #3c3d3e;*/
-    background: #e7ebec;
+    background: var(--ui-hover);
   }
   .dark-mode .connection-menu .key-list .key-item:hover {
     color: #f7f7f7;
     background: #50616b;
   }
   .connection-menu .key-list .key-item.key-select {
-    color: #0b7ff7;
-    background: #e7ebec;
+    color: var(--ui-primary);
+    background: var(--ui-selected);
     box-sizing: border-box;
-    border-left: 2px solid #68acf3;
+    border-left: 2px solid var(--ui-primary);
     padding-left: 4px;
   }
   .dark-mode .connection-menu .key-list .key-item.key-select {

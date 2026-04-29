@@ -137,7 +137,7 @@ export default {
   }
   /*  vxe table radius*/
   .key-content-container .content-table-container .vxe-table--border-line {
-    border-radius: 3px;
+    border-radius: 4px;
   }
 
   /*key-content-string such as String,ReJSON*/

@@ -244,49 +244,48 @@ export default {
 <style type="text/css">
   /*menu ul*/
   .connection-menu {
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     padding-right: 0;
     border-right: 0;
     background-color: transparent;
   }
 
   .connection-menu li.el-submenu {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    background-color: var(--ui-surface);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease;
     overflow: hidden;
   }
 
   .connection-menu li.el-submenu:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    transform: translateY(-1px);
+    background-color: var(--ui-hover);
   }
 
   .dark-mode .connection-menu li.el-submenu {
-    background-color: #2d3748;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+    border-color: transparent;
   }
 
   .dark-mode .connection-menu li.el-submenu:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    background-color: #425057;
   }
 
   .connection-menu.menu-with-custom-color li.el-submenu {
-    border-left: 4px solid var(--menu-color);
-    border-radius: 8px;
+    border-left: 2px solid var(--menu-color);
+    border-radius: 4px;
     padding-left: 0;
   }
 
   .connection-menu .el-submenu__title {
-    padding: 12px 16px;
-    height: auto;
-    line-height: normal;
-    transition: all 0.3s ease;
+    padding: 0 8px;
+    height: 32px;
+    line-height: 32px;
+    transition: background-color 0.2s ease;
   }
 
   .connection-menu .el-submenu__title:hover {
-    background-color: #f8fafc;
+    background-color: transparent;
   }
 
   .dark-mode .connection-menu .el-submenu__title {
@@ -294,12 +293,12 @@ export default {
   }
 
   .dark-mode .connection-menu .el-submenu__title:hover {
-    background-color: #374151;
+    background-color: transparent;
   }
 
   .connection-menu .el-submenu__icon-arrow {
-    right: 16px;
-    transition: transform 0.3s ease;
+    right: 8px;
+    transition: transform 0.2s ease;
   }
 
   .dark-mode .connection-menu .el-submenu__icon-arrow {

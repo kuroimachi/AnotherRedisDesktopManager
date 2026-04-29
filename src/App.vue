@@ -97,6 +97,23 @@ export default {
 html {
   height: 100%;
 }
+:root {
+  --ui-primary: #1677ff;
+  --ui-primary-hover: #4096ff;
+  --ui-text: #1f2937;
+  --ui-text-secondary: #606266;
+  --ui-text-muted: #909399;
+  --ui-border: #e5e7eb;
+  --ui-border-strong: #dcdfe6;
+  --ui-bg: #f5f7fb;
+  --ui-surface: #fff;
+  --ui-hover: #eef5ff;
+  --ui-selected: #e6f0ff;
+  --ui-dark-bg: #263238;
+  --ui-dark-surface: #324148;
+  --ui-dark-hover: #40515a;
+  --ui-dark-border: #4b5d66;
+}
 body {
   height: 100%;
   padding: 8px;
@@ -106,13 +123,19 @@ body {
 
   /*fix body scroll-y caused by tooltip in table*/
   overflow: hidden;
+  color: var(--ui-text);
+  background: var(--ui-bg);
+}
+.dark-mode {
+  color: #f1f5f9;
+  background: var(--ui-dark-bg);
 }
 
 button, input, textarea, .vjs__tree {
   font-family: inherit !important;
 }
 a {
-  color: #8e8d8d;
+  color: var(--ui-primary);
 }
 
 
@@ -123,11 +146,11 @@ a {
 
 /*scrollbar style start*/
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
 }
 /*track*/
 ::-webkit-scrollbar-track {
-  background: #eaeaea;
+  background: #eef1f6;
   border-radius: 4px;
 }
 .dark-mode ::-webkit-scrollbar-track {
@@ -135,22 +158,22 @@ a {
 }
 /*track hover*/
 ::-webkit-scrollbar-track:hover {
-  background: #e0e0dd;
+  background: #e6eaf0;
 }
 .dark-mode ::-webkit-scrollbar-track:hover {
   background: #495961;
 }
 /*thumb*/
 ::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background: #c1c1c1;
+  border-radius: 4px;
+  background: #c8d0da;
 }
 .dark-mode ::-webkit-scrollbar-thumb {
   background: #5a6f7a;
 }
 /*thumb hover*/
 ::-webkit-scrollbar-thumb:hover {
-  background: #7f7f7f;
+  background: #9aa6b2;
 }
 .dark-mode ::-webkit-scrollbar-thumb:hover {
   background: #6a838f;
@@ -180,8 +203,13 @@ li .list-index {
 .aside-connection {
   height: 100%;
   width: 100% !important;
-  border-right: 1px solid #e4e0e0;
+  border-right: 1px solid var(--ui-border);
   overflow: hidden;
+  background: var(--ui-surface);
+}
+.dark-mode .aside-connection {
+  border-right-color: var(--ui-dark-border);
+  background: var(--ui-dark-bg);
 }
 /*fix right container imdraggable*/
 .right-main-container {
@@ -217,8 +245,8 @@ li .list-index {
   display: inline-block;
   width: 2px;
   height: 20px;
-  border-left: 1px solid #adabab;
-  border-right: 1px solid #adabab;
+  border-left: 1px solid #c0c4cc;
+  border-right: 1px solid #c0c4cc;
 
   position: absolute;
   top: 0;
@@ -227,8 +255,8 @@ li .list-index {
   margin: auto;
 }
 .dark-mode #drag-resize-pointer::after {
-  border-left: 1px solid #b9b8b8;
-  border-right: 1px solid #b9b8b8;
+  border-left: 1px solid #7f8f99;
+  border-right: 1px solid #7f8f99;
 }
 
 @keyframes rotate {

@@ -408,40 +408,43 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 0px;
+    padding: 4px 0;
     z-index: 99999;
-    border-radius: 3px;
-    border: 2px solid lightgrey;
-    background: #fafafa;
+    border-radius: 4px;
+    border: 1px solid var(--ui-border);
+    background: var(--ui-surface);
+    box-shadow: 0 6px 18px rgba(31, 41, 55, .12);
   }
   .dark-mode .tabs-context-menu {
-    background: #263238;
+    border-color: #4b5d66;
+    background: #36434a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
   }
 
   .tabs-context-menu ul {
     list-style: none;
-    padding: 0px;
+    padding: 0;
     margin: 0;
   }
   .tabs-context-menu ul li:not(:last-child) {
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 0;
   }
 
   .tabs-context-menu ul li {
-    font-size: 13.4px;
-    padding: 6px 10px;
+    font-size: 14px;
+    padding: 7px 12px;
     cursor: pointer;
-    color: #263238;
+    color: var(--ui-text);
   }
   .dark-mode .tabs-context-menu ul li {
-    color: #fff;
+    color: #f1f5f9;
   }
 
   .tabs-context-menu ul li:hover {
-    background: #e4e2e2;
+    background: var(--ui-hover);
   }
   .dark-mode .tabs-context-menu ul li:hover {
-    background: #344A4E;
+    background: #50616b;
   }
   /*context menu end*/
 </style>

@@ -226,8 +226,8 @@ export default {
 <style type="text/css" >
   .del-title {
     color: #f56c6c;
-    font-weight: bold;
-    font-size: 120%;
+    font-weight: 600;
+    font-size: 16px;
   }
   .del-batch-card {
     /*margin-top: 10px;*/
@@ -240,8 +240,8 @@ export default {
     margin-top: 10px;
   }
   .del-batch-key-list li {
-    color: #333;
-    font-size: 92%;
+    color: var(--ui-text);
+    font-size: 14px;
     display: flex;
   }
   .dark-mode .del-batch-key-list li {

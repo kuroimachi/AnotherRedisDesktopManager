@@ -87,21 +87,22 @@ export default {
 
 <style type="text/css">
   .to-top-container {
-    background-color: #409eff;
+    background-color: rgba(31, 41, 55, .72);
     position: fixed;
     /*right: 50px;*/
     bottom: 30px;
     width: 40px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: .3s;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, .5);
-    opacity: .5;
+    transition: opacity .2s ease, background-color .2s ease;
+    box-shadow: none;
+    opacity: .55;
     z-index: 10000;
   }
   .to-top-container:hover{
     opacity: 1;
+    background-color: var(--ui-primary);
   }
   .to-top-container .el-icon-to-top{
     color: #fff;

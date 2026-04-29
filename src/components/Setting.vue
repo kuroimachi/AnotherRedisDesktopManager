@@ -328,8 +328,8 @@ export default {
   margin-bottom: 8px;
 }
 .setting-main-dialog .setting-card .el-card__header {
-  font-size: 105%;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .setting-main-dialog .setting-card .setting-row {

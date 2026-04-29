@@ -240,43 +240,36 @@ export default {
   .connections-wrap {
     height: calc(100vh - 59px);
     overflow-y: auto;
-    margin-top: 16px;
-    padding: 0 16px;
+    margin-top: 12px;
+    padding: 0 10px 8px;
   }
   
   .connections-wrap .filter-input {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
   
-  .connections-wrap .filter-input .el-input {
-    border-radius: 8px;
-    border: 1px solid #e1e5e9;
-    transition: all 0.3s ease;
+  .connections-wrap .filter-input .el-input__inner {
+    height: 30px;
+    line-height: 30px;
+    border-color: var(--ui-border-strong);
+    border-radius: 4px;
+    background-color: var(--ui-surface);
+    transition: border-color 0.2s ease;
   }
   
-  .connections-wrap .filter-input .el-input:hover {
-    border-color: #409EFF;
-    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.1);
+  .connections-wrap .filter-input .el-input__inner:hover,
+  .connections-wrap .filter-input .el-input__inner:focus {
+    border-color: var(--ui-primary);
   }
   
-  .connections-wrap .filter-input .el-input:focus-within {
-    border-color: #409EFF;
-    box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+  .dark-mode .connections-wrap .filter-input .el-input__inner {
+    border-color: var(--ui-dark-border);
+    background-color: var(--ui-dark-surface);
   }
   
-  .dark-mode .connections-wrap .filter-input .el-input {
-    border-color: #374151;
-    background-color: #1f2937;
-  }
-  
-  .dark-mode .connections-wrap .filter-input .el-input:hover {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
-  }
-  
-  .dark-mode .connections-wrap .filter-input .el-input:focus-within {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
+  .dark-mode .connections-wrap .filter-input .el-input__inner:hover,
+  .dark-mode .connections-wrap .filter-input .el-input__inner:focus {
+    border-color: #7f8f99;
   }
   
   /* set drag area min height, target to the end will be correct */
@@ -286,126 +279,110 @@ export default {
 
   /* Group styles */
   .connections-list .connection-group {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     background-color: transparent;
   }
   
   .group-header {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
-    background-color: #ffffff;
-    border-radius: 8px;
+    height: 30px;
+    padding: 0 8px;
+    background-color: var(--ui-surface);
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
+    transition: background-color 0.2s ease;
     user-select: none;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   }
   
   .dark-mode .group-header {
-    background-color: #2d3748;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
   }
   
   .group-header:hover {
-    background-color: #f8fafc;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    background-color: var(--ui-hover);
   }
   
   .dark-mode .group-header:hover {
-    background-color: #374151;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    background-color: #425057;
   }
   
   .group-toggle-icon {
-    font-size: 16px;
-    margin-right: 12px;
-    transition: transform 0.3s ease, color 0.3s ease;
-    color: #64748b;
+    font-size: 12px;
+    margin-right: 6px;
+    color: var(--ui-text-muted);
   }
   
   .dark-mode .group-toggle-icon {
-    color: #94a3b8;
+    color: #adbac1;
   }
   
   .group-name {
     flex: 1;
-    font-size: 15px;
-    font-weight: 600;
-    color: #1e293b;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ui-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   
   .dark-mode .group-name {
-    color: #f1f5f9;
+    color: #d7dde1;
   }
   
   .group-count {
-    font-size: 13px;
-    font-weight: 500;
-    color: #64748b;
-    margin-left: 12px;
-    background-color: #f1f5f9;
-    padding: 4px 10px;
-    border-radius: 16px;
-    transition: all 0.3s ease;
+    min-width: 18px;
+    font-size: 12px;
+    color: var(--ui-text-muted);
+    margin-left: 6px;
+    text-align: right;
   }
   
   .dark-mode .group-count {
-    color: #94a3b8;
-    background-color: #374151;
-  }
-  
-  .group-header:hover .group-count {
-    background-color: #e2e8f0;
-  }
-  
-  .dark-mode .group-header:hover .group-count {
-    background-color: #4b5563;
+    color: #adbac1;
   }
   
   .group-connections {
     margin-left: 0;
-    margin-top: 12px;
+    margin-top: 2px;
     padding-left: 0;
-    border-left: none;
     background-color: transparent;
   }
   
   .no-connections {
-    padding: 40px 20px;
+    padding: 24px 12px;
     text-align: center;
-    color: #94a3b8;
-    background-color: #f8fafc;
-    border-radius: 8px;
-    margin-top: 20px;
+    color: var(--ui-text-muted);
+    background-color: transparent;
+    border: 1px dashed var(--ui-border-strong);
+    border-radius: 4px;
+    margin-top: 12px;
   }
   
   .dark-mode .no-connections {
-    background-color: #2d3748;
-    color: #64748b;
+    border-color: #4b5d66;
+    color: #adbac1;
   }
   
   /* Scrollbar styling */
   .connections-wrap::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   
   .connections-wrap::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #eef1f6;
     border-radius: 4px;
   }
   
   .connections-wrap::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #c8d0da;
     border-radius: 4px;
     transition: background 0.3s ease;
   }
   
   .connections-wrap::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #9aa6b2;
   }
   
   .dark-mode .connections-wrap::-webkit-scrollbar-track {

@@ -167,15 +167,15 @@ export default {
 
 <style type="text/css">
   .slowlog-container .card-title {
-    font-weight: bold;
-    font-size: 120%;
+    font-weight: 600;
+    font-size: 16px;
   }
 
   .slowlog-container .table-header {
     margin: 2px 0 14px 0;
     user-select: none;
     display: flex;
-    font-weight: bold;
+    font-weight: 600;
   }
   .slowlog-container .table-header .reorder-container {
     margin-left: auto;
@@ -192,10 +192,10 @@ export default {
     text-align: center;
   }
   .slowlog-container .list-body li {
-    border-bottom: 1px solid #e6e6e6;
-    padding: 0 0 0 4px;
+    border-bottom: 1px solid var(--ui-border);
+    padding: 0 4px;
     margin-right: 2px;
-    font-size: 92%;
+    font-size: 14px;
     list-style: none;
     display: flex;
     /*same with item-size*/
@@ -211,7 +211,7 @@ export default {
     white-space: nowrap;
   }
   .slowlog-container .list-body .cost {
-    font-size: 90%;
+    font-size: 12px;
     margin-left: 16px;
     margin-right: 4px;
   }
@@ -220,10 +220,10 @@ export default {
     border-bottom: 1px solid #3b4d57;
   }
   .slowlog-container .list-body li:hover {
-    background: #e6e6e6;
+    background: var(--ui-hover);
   }
   .dark-mode .slowlog-container .list-body li:hover {
-    background: #3b4d57;
+    background: #50616b;
   }
 
   /* table footer*/

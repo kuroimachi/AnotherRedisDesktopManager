@@ -85,7 +85,7 @@ export default {
 
 <style type="text/css">
   .aside-top-container {
-    margin-right: 8px;
+    margin-right: 10px;
   }
   .aside-top-container .aside-new-connection-container {
     margin-right: 109px;
@@ -94,15 +94,30 @@ export default {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    border-radius: 4px;
   }
   .aside-top-container .aside-setting-btn {
     float: right;
     width: 44px;
     margin-right: 5px;
+    border-radius: 4px;
+  }
+
+  .aside-top-container .el-button--primary.is-plain {
+    color: var(--ui-primary);
+    border-color: #b9d6ff;
+    background: #f2f7ff;
+  }
+
+  .aside-top-container .el-button--primary.is-plain:hover,
+  .aside-top-container .el-button--primary.is-plain:focus {
+    color: #fff;
+    border-color: var(--ui-primary);
+    background: var(--ui-primary);
   }
 
   .dark-mode .aside-top-container .el-button--info {
-    color: #52a6fd;
+    color: #8cc5ff;
     background: inherit;
   }
 </style>

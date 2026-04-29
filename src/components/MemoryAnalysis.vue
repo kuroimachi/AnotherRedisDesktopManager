@@ -262,8 +262,8 @@ export default {
 
 <style type="text/css">
   .memory-analysis-container .analysis-title {
-    font-weight: bold;
-    font-size: 120%;
+    font-weight: 600;
+    font-size: 16px;
   }
   .memory-analysis-container .operate-btn {
     float: right;
@@ -275,7 +275,7 @@ export default {
     user-select: none;
   }
   .memory-analysis-container .keys-header .header-title {
-    font-weight: bold;
+    font-weight: 600;
   }
   .memory-analysis-container .keys-header .size-container {
     float: right;
@@ -288,11 +288,11 @@ export default {
   }
   /*keys body li*/
   .memory-analysis-container .keys-body li {
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid var(--ui-border);
     cursor:  pointer;
-    padding: 0 0 0 4px;
+    padding: 0 4px;
     margin-right: 2px;
-    font-size: 92%;
+    font-size: 14px;
     list-style: none;
     display: flex;
     /*same with item-size*/
@@ -302,10 +302,10 @@ export default {
     border-bottom: 1px solid #3b4d57;
   }
   .memory-analysis-container .keys-body li:hover {
-    background: #e6e6e6;
+    background: var(--ui-hover);
   }
   .dark-mode .memory-analysis-container .keys-body li:hover {
-    background: #3b4d57;
+    background: #50616b;
   }
   /*key name*/
   .memory-analysis-container .keys-body li .key-name {
