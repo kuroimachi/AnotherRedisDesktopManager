@@ -336,14 +336,18 @@ export default {
 <style type="text/css">
   .keys-load-more-wrapper {
     display: flex;
+    gap: 8px;
+    padding: 9px 7px 10px;
+    background: var(--mac-sidebar);
+    border-top: 1px solid var(--mac-separator);
   }
   .keys-load-more-wrapper .load-more-keys {
-    margin: 10px 5px;
-    padding: 0;
+    margin: 0;
+    padding: 0 10px;
     display: block;
-    height: 22px;
+    height: 28px;
     width: 100%;
-    font-size: 75%;
+    font-size: 12px;
   }
 
 </style>

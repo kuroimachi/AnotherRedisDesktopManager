@@ -98,7 +98,7 @@ export default {
     groupedConnections() {
       // Group connections by group name
       const groups = {};
-      
+
       this.filteredConnections.forEach(conn => {
         const groupName = conn.group || '';
         if (!groups[groupName]) {
@@ -106,7 +106,7 @@ export default {
         }
         groups[groupName].push(conn);
       });
-      
+
       // Get all group names with their first connection's order
       const groupOrders = [];
       Object.keys(groups).forEach(groupName => {
@@ -115,12 +115,12 @@ export default {
         const minOrder = Math.min(...group.map(conn => conn.order || 0));
         groupOrders.push({ groupName, order: minOrder });
       });
-      
+
       // Sort groups by their minimum order
       groupOrders.sort((a, b) => {
         return a.order - b.order;
       });
-      
+
       // Convert to array and sort connections within each group
       return groupOrders.map(item => ({
         groupName: item.groupName,
@@ -176,7 +176,7 @@ export default {
           allGroups.splice(e.oldIndex, 1);
           // Insert at new position
           allGroups.splice(e.newIndex, 0, currentGroupName);
-          
+
           // Reorder connections based on new group order
           const reorderedConnections = [];
           allGroups.forEach(groupName => {
@@ -185,13 +185,13 @@ export default {
               reorderedConnections.push(...group.connections);
             }
           });
-          
+
           // Update connections and store
           this.connections = reorderedConnections;
           this.$storage.reOrderAndStore(this.connections);
         },
       });
-      
+
       // Initialize sortable for connections within each group
       this.$nextTick(() => {
         const groupConnections = document.querySelectorAll('.group-connections');
@@ -205,20 +205,20 @@ export default {
               const groupElement = group.closest('.connection-group');
               const groupHeader = groupElement.querySelector('.group-name');
               const groupName = groupHeader.textContent.trim() || '';
-              
+
               // Find the group in groupedConnections
               const groupObj = this.groupedConnections.find(g => g.groupName === groupName);
               if (groupObj) {
                 // Reorder connections within the group
                 const currentConn = groupObj.connections.splice(e.oldIndex, 1)[0];
                 groupObj.connections.splice(e.newIndex, 0, currentConn);
-                
+
                 // Rebuild connections array
                 const reorderedConnections = [];
                 this.groupedConnections.forEach(g => {
                   reorderedConnections.push(...g.connections);
                 });
-                
+
                 // Update connections and store
                 this.connections = reorderedConnections;
                 this.$storage.reOrderAndStore(this.connections);
@@ -238,118 +238,126 @@ export default {
 
 <style type="text/css">
   .connections-wrap {
-    height: calc(100vh - 59px);
+    height: calc(100vh - 61px);
     overflow-y: auto;
-    margin-top: 12px;
-    padding: 0 10px 8px;
+    margin-top: 0;
+    padding: 10px 9px 0;
   }
-  
+
   .connections-wrap .filter-input {
-    margin-bottom: 10px;
+    margin: 0 3px 10px;
   }
-  
-  .connections-wrap .filter-input .el-input__inner {
-    height: 30px;
-    line-height: 30px;
-    border-color: var(--ui-border-strong);
-    border-radius: 4px;
-    background-color: var(--ui-surface);
-    transition: border-color 0.2s ease;
+
+  .connections-wrap .filter-input .el-input {
+    border: 0;
   }
-  
-  .connections-wrap .filter-input .el-input__inner:hover,
-  .connections-wrap .filter-input .el-input__inner:focus {
-    border-color: var(--ui-primary);
+
+  .connections-wrap .filter-input .el-input:hover {
+    box-shadow: none;
   }
-  
-  .dark-mode .connections-wrap .filter-input .el-input__inner {
-    border-color: var(--ui-dark-border);
-    background-color: var(--ui-dark-surface);
+
+  .connections-wrap .filter-input .el-input:focus-within {
+    box-shadow: none;
   }
-  
+
   .dark-mode .connections-wrap .filter-input .el-input__inner:hover,
   .dark-mode .connections-wrap .filter-input .el-input__inner:focus {
     border-color: #7f8f99;
   }
-  
+
   /* set drag area min height, target to the end will be correct */
   .connections-wrap .connections-list {
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 120px);
   }
 
   /* Group styles */
   .connections-list .connection-group {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     background-color: transparent;
   }
-  
+
   .group-header {
     display: flex;
     align-items: center;
-    height: 30px;
-    padding: 0 8px;
-    background-color: var(--ui-surface);
-    border-radius: 4px;
+    padding: 6px 9px;
+    background: transparent;
+    border-radius: var(--mac-radius-sm);
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color .16s ease;
+    font-weight: 500;
     user-select: none;
+    box-shadow: none;
   }
-  
+
   .dark-mode .group-header {
-    background-color: transparent;
+    background: transparent;
+    box-shadow: none;
   }
-  
+
   .group-header:hover {
-    background-color: var(--ui-hover);
+    background: var(--mac-control);
+    transform: none;
+    box-shadow: none;
   }
-  
+
   .dark-mode .group-header:hover {
-    background-color: #425057;
+    background: var(--mac-control);
+    transform: none;
+    box-shadow: none;
   }
-  
+
   .group-toggle-icon {
     font-size: 12px;
-    margin-right: 6px;
-    color: var(--ui-text-muted);
+    margin-right: 7px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: var(--mac-text-tertiary);
   }
-  
+
   .dark-mode .group-toggle-icon {
     color: #adbac1;
   }
-  
+
   .group-name {
     flex: 1;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ui-text-secondary);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--mac-text-secondary);
   }
-  
+
   .dark-mode .group-name {
     color: #d7dde1;
   }
-  
+
   .group-count {
-    min-width: 18px;
     font-size: 12px;
-    color: var(--ui-text-muted);
-    margin-left: 6px;
-    text-align: right;
+    font-weight: 400;
+    color: var(--mac-text-tertiary);
+    margin-left: 8px;
+    background: transparent;
+    padding: 0;
+    transition: all 0.3s ease;
   }
-  
+
   .dark-mode .group-count {
-    color: #adbac1;
+    color: #94a3b8;
+    background-color: #374151;
   }
-  
+
+  .group-header:hover .group-count {
+    background: transparent;
+  }
+
+  .dark-mode .group-header:hover .group-count {
+    background-color: #4b5563;
+  }
+
   .group-connections {
     margin-left: 0;
-    margin-top: 2px;
+    margin-top: 3px;
     padding-left: 0;
     background-color: transparent;
   }
-  
+
   .no-connections {
     padding: 24px 12px;
     text-align: center;
@@ -359,40 +367,40 @@ export default {
     border-radius: 4px;
     margin-top: 12px;
   }
-  
+
   .dark-mode .no-connections {
     border-color: #4b5d66;
     color: #adbac1;
   }
-  
+
   /* Scrollbar styling */
   .connections-wrap::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   .connections-wrap::-webkit-scrollbar-track {
     background: #eef1f6;
     border-radius: 4px;
   }
-  
+
   .connections-wrap::-webkit-scrollbar-thumb {
     background: #c8d0da;
     border-radius: 4px;
     transition: background 0.3s ease;
   }
-  
+
   .connections-wrap::-webkit-scrollbar-thumb:hover {
     background: #9aa6b2;
   }
-  
+
   .dark-mode .connections-wrap::-webkit-scrollbar-track {
     background: #1f2937;
   }
-  
+
   .dark-mode .connections-wrap::-webkit-scrollbar-thumb {
     background: #374151;
   }
-  
+
   .dark-mode .connections-wrap::-webkit-scrollbar-thumb:hover {
     background: #4b5563;
   }

@@ -244,27 +244,29 @@ export default {
 <style type="text/css">
   /*menu ul*/
   .connection-menu {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     padding-right: 0;
     border-right: 0;
     background-color: transparent;
   }
 
   .connection-menu li.el-submenu {
-    background-color: var(--ui-surface);
-    border-radius: 4px;
-    border: 1px solid transparent;
-    transition: background-color 0.2s ease;
+    background: transparent;
+    border-radius: var(--mac-radius-sm);
+    box-shadow: none;
+    transition: background-color .16s ease;
     overflow: hidden;
   }
 
   .connection-menu li.el-submenu:hover {
-    background-color: var(--ui-hover);
+    box-shadow: none;
+    transform: none;
+    background: var(--mac-control);
   }
 
   .dark-mode .connection-menu li.el-submenu {
-    background-color: transparent;
-    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
   }
 
   .dark-mode .connection-menu li.el-submenu:hover {
@@ -272,16 +274,16 @@ export default {
   }
 
   .connection-menu.menu-with-custom-color li.el-submenu {
-    border-left: 2px solid var(--menu-color);
-    border-radius: 4px;
+    border-left: 3px solid var(--menu-color);
+    border-radius: var(--mac-radius-sm);
     padding-left: 0;
   }
 
   .connection-menu .el-submenu__title {
-    padding: 0 8px;
-    height: 32px;
-    line-height: 32px;
-    transition: background-color 0.2s ease;
+    padding: 7px 9px;
+    height: auto;
+    line-height: normal;
+    transition: all 0.3s ease;
   }
 
   .connection-menu .el-submenu__title:hover {

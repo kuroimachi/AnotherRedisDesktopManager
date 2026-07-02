@@ -192,6 +192,8 @@ npm run pack:win32
 
 # on mac
 npm run pack:mac
+# on Apple Silicon mac (local package, no publish)
+npm run pack:macm1
 
 # on linux
 npm run pack:linux
@@ -328,4 +330,3 @@ npm run pack:linux
 ## Support
 
 [goanother.com](https://goanother.com/) &nbsp; [Producthunt](https://www.producthunt.com/posts/another-redis-desktop-manager) &nbsp; [Twitter@shibo](https://twitter.com/qii404) &nbsp; [Download Analysis](https://qii404.me/github-release-statistics/?repo=/qishibo/AnotherRedisDesktopManager/)
-

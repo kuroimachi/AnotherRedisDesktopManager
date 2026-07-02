@@ -393,8 +393,15 @@ export default {
 </script>
 
 <style type="text/css">
+  .tab-content-wrappe > div > .el-row:first-child { height: 34px; }
   .el-row.status-card {
-    margin-top: 20px;
+    margin-top: 14px;
+  }
+  .status-card .el-card__header { padding: 14px 16px; font-size: 14px; }
+  .status-card .el-card__body { padding: 14px 16px 16px; }
+  .status-card .el-tag--info {
+    height: 36px; padding: 0 11px; line-height: 34px; border: 0;
+    border-radius: var(--mac-radius-sm); color: var(--mac-text-secondary); background: var(--mac-control);
   }
   .server-status-tag-p {
     height: 32px;
@@ -405,7 +412,8 @@ export default {
     text-overflow: ellipsis;
   }
   .server-status-text{
-    color: #43b50b;
+    color: var(--mac-success);
+    font-weight: 600;
   }
   .status-filter-input {
     float: right;

@@ -116,7 +116,7 @@ html {
 }
 body {
   height: 100%;
-  padding: 8px;
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -194,16 +194,19 @@ li .list-index {
 
 .wrap-container {
   height: 100%;
+  background: var(--mac-bg);
 }
 .aside-drag-container {
   position: relative;
   user-select: none;
+  background: var(--mac-sidebar);
+  backdrop-filter: saturate(180%) blur(24px);
   /*max-width: 50%;*/
 }
 .aside-connection {
   height: 100%;
   width: 100% !important;
-  border-right: 1px solid var(--ui-border);
+  border-right: 1px solid var(--mac-separator);
   overflow: hidden;
   background: var(--ui-surface);
 }
@@ -218,7 +221,8 @@ li .list-index {
 .right-main-container .main-tabs-container {
   overflow-y: hidden;
   padding-top: 0px;
-  padding-right: 4px;
+  padding: 0;
+  background: var(--mac-surface-solid);
 }
 
 .el-message-box .el-message-box__message {
@@ -231,7 +235,7 @@ li .list-index {
   position: absolute;
   /*height: 100%;*/
   width: 10px;
-  right: -12px;
+  right: -5px;
   top: 0px;
 }
 #drag-resize-pointer {
@@ -245,8 +249,9 @@ li .list-index {
   display: inline-block;
   width: 2px;
   height: 20px;
-  border-left: 1px solid #c0c4cc;
-  border-right: 1px solid #c0c4cc;
+  border: 0;
+  border-radius: 2px;
+  background: var(--mac-border);
 
   position: absolute;
   top: 0;

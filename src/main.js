@@ -2,6 +2,7 @@ import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'font-awesome/css/font-awesome.css';
 import App from './App';
+import './styles/macos-theme.css';
 import i18n from './i18n/i18n';
 import bus from './bus';
 import util from './util';

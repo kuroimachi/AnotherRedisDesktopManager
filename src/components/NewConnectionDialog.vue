@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" :append-to-body='true' :close-on-click-modal='false' class='new-connection-dailog' width='90%'>
+  <el-dialog :title="dialogTitle" :visible.sync="dialogVisible" :append-to-body='true' :close-on-click-modal='false' class='new-connection-dailog' width='90%' top="7vh">
     <!-- redis connection form -->
     <el-form :label-position="labelPosition" label-width="90px">
       <el-row :gutter=20>
@@ -57,7 +57,7 @@
       </el-row>
 
       <!-- other operation -->
-      <el-form-item label="">
+      <el-form-item label="" class="connection-options-row">
         <el-checkbox v-model="sshOptionsShow">SSH</el-checkbox>
         <el-checkbox v-model="sslOptionsShow">SSL</el-checkbox>
         <el-checkbox v-model="proxyOptionsShow">
@@ -511,19 +511,31 @@ export default {
   }
 
   .new-connection-dailog .el-dialog {
-    max-width: 900px;
+    max-width: 760px;
   }
+  .new-connection-dailog .el-dialog__body {
+    max-height: calc(86vh - 126px); padding: 22px 24px 8px; overflow-y: auto;
+  }
+  .new-connection-dailog .el-form-item { margin-bottom: 17px; }
+  .new-connection-dailog .el-form-item__label {
+    padding-bottom: 7px; color: var(--mac-text-secondary); font-size: 12px;
+    font-weight: 500; line-height: 1.2;
+  }
+  .new-connection-dailog .el-select { width: 100%; }
+  .new-connection-dailog .connection-options-row {
+    margin: 4px 0 14px; padding: 12px 14px; border-radius: var(--mac-radius); background: var(--mac-control);
+  }
+  .new-connection-dailog .connection-options-row .el-form-item__content { line-height: 26px; }
+  .new-connection-dailog .dialog-footer .el-button { min-width: 78px; }
 
   .new-connection-dailog fieldset {
-    border-width: 1px 0 0 0;
-    border-color: var(--ui-border-strong);
-    font-weight: 600;
-    color: var(--ui-text-muted);
-    font-size: 14px;
-    margin-bottom: 6px;
+    margin: 8px 0 18px; padding: 0; border-width: 1px 0 0;
+    border-color: var(--mac-separator); font-weight: 600;
+    color: var(--mac-text-secondary); font-size: 12px;
   }
+  .new-connection-dailog fieldset legend { padding-right: 10px; }
   .dark-mode .new-connection-dailog fieldset {
-    color: #adbac1;
-    border-color: #4b5d66;
+    color: var(--mac-text-secondary);
+    border-color: var(--mac-separator);
   }
 </style>

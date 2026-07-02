@@ -1,0 +1,187 @@
+:root {
+  --mac-bg: #f5f5f7;
+  --mac-surface: rgba(255, 255, 255, 0.82);
+  --mac-surface-solid: #ffffff;
+  --mac-sidebar: rgba(239, 240, 242, 0.88);
+  --mac-control: rgba(118, 118, 128, 0.08);
+  --mac-control-hover: rgba(118, 118, 128, 0.14);
+  --mac-border: rgba(60, 60, 67, 0.16);
+  --mac-separator: rgba(60, 60, 67, 0.12);
+  --mac-text: #1d1d1f;
+  --mac-text-secondary: #6e6e73;
+  --mac-text-tertiary: #98989d;
+  --mac-accent: #0a84ff;
+  --mac-accent-hover: #0077ed;
+  --mac-accent-soft: rgba(10, 132, 255, 0.12);
+  --mac-danger: #ff3b30;
+  --mac-success: #30b050;
+  --mac-radius-sm: 6px;
+  --mac-radius: 9px;
+  --mac-radius-lg: 13px;
+  --mac-shadow-popover: 0 18px 50px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --mac-shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.04), 0 7px 24px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode {
+  --mac-bg: #1c1c1e;
+  --mac-surface: rgba(44, 44, 46, 0.86);
+  --mac-surface-solid: #2c2c2e;
+  --mac-sidebar: rgba(36, 36, 38, 0.9);
+  --mac-control: rgba(255, 255, 255, 0.08);
+  --mac-control-hover: rgba(255, 255, 255, 0.13);
+  --mac-border: rgba(255, 255, 255, 0.15);
+  --mac-separator: rgba(255, 255, 255, 0.1);
+  --mac-text: #f5f5f7;
+  --mac-text-secondary: #aeaeb2;
+  --mac-text-tertiary: #8e8e93;
+  --mac-accent: #0a84ff;
+  --mac-accent-hover: #409cff;
+  --mac-accent-soft: rgba(10, 132, 255, 0.2);
+  --mac-shadow-popover: 0 20px 60px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.28);
+  --mac-shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.22), 0 8px 26px rgba(0, 0, 0, 0.18);
+}
+
+html, body {
+  color: var(--mac-text);
+  background: var(--mac-bg);
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Element UI controls */
+.el-button {
+  min-height: 32px;
+  border-radius: var(--mac-radius-sm);
+  border-color: var(--mac-border);
+  color: var(--mac-text);
+  background: var(--mac-surface-solid);
+  font-weight: 500;
+  transition: background-color .16s ease, border-color .16s ease, box-shadow .16s ease, transform .08s ease;
+}
+
+.el-button:hover,
+.el-button:focus {
+  color: var(--mac-text);
+  border-color: var(--mac-border);
+  background: var(--mac-control-hover);
+}
+
+.el-button:active { transform: scale(.98); }
+.el-button--primary,
+.el-button--primary:hover,
+.el-button--primary:focus {
+  color: #fff;
+  border-color: var(--mac-accent);
+  background: var(--mac-accent);
+}
+.el-button--primary:hover { background: var(--mac-accent-hover); }
+.el-button--danger { background: var(--mac-danger); border-color: var(--mac-danger); color: #fff; }
+.el-button--success { background: var(--mac-success); border-color: var(--mac-success); color: #fff; }
+.el-button.is-plain { background: var(--mac-control); border-color: transparent; color: var(--mac-text-secondary); }
+
+.el-input__inner,
+.el-textarea__inner,
+.el-select .el-input__inner {
+  color: var(--mac-text);
+  background: var(--mac-surface-solid);
+  border: 1px solid var(--mac-border);
+  border-radius: var(--mac-radius-sm);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .025);
+  transition: border-color .16s ease, box-shadow .16s ease;
+}
+.el-input__inner:hover,
+.el-textarea__inner:hover { border-color: rgba(60, 60, 67, .28); }
+.el-input__inner:focus,
+.el-textarea__inner:focus,
+.el-select .el-input.is-focus .el-input__inner {
+  border-color: var(--mac-accent);
+  box-shadow: 0 0 0 3px var(--mac-accent-soft);
+}
+.el-input__inner::placeholder,
+.el-textarea__inner::placeholder { color: var(--mac-text-tertiary); }
+
+.el-checkbox__inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border-color: var(--mac-border);
+  background: var(--mac-surface-solid);
+}
+.el-checkbox__input.is-checked .el-checkbox__inner { background: var(--mac-accent); border-color: var(--mac-accent); }
+.el-checkbox__label { color: var(--mac-text-secondary); }
+.el-checkbox__input.is-checked + .el-checkbox__label { color: var(--mac-text); }
+
+.el-dialog {
+  overflow: hidden;
+  border: 1px solid var(--mac-border);
+  border-radius: var(--mac-radius-lg);
+  color: var(--mac-text);
+  background: var(--mac-surface-solid);
+  box-shadow: var(--mac-shadow-popover);
+}
+.el-dialog__header {
+  padding: 18px 22px 16px;
+  border-bottom: 1px solid var(--mac-separator);
+  text-align: center;
+}
+.el-dialog__title { color: var(--mac-text); font-size: 15px; font-weight: 600; }
+.el-dialog__headerbtn { top: 17px; right: 18px; }
+.el-dialog__headerbtn .el-dialog__close { color: var(--mac-text-tertiary); }
+.el-dialog__body { color: var(--mac-text); }
+.el-dialog__footer { padding: 13px 20px; border-top: 1px solid var(--mac-separator); background: var(--mac-control); }
+.v-modal { background: rgba(0, 0, 0, .32); backdrop-filter: blur(3px); }
+
+.el-dropdown-menu,
+.el-select-dropdown,
+.el-popover,
+.el-picker-panel {
+  color: var(--mac-text);
+  background: var(--mac-surface-solid);
+  border: 1px solid var(--mac-border);
+  border-radius: var(--mac-radius);
+  box-shadow: var(--mac-shadow-popover);
+}
+.el-select-dropdown__item { color: var(--mac-text); }
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover,
+.el-dropdown-menu__item:focus,
+.el-dropdown-menu__item:not(.is-disabled):hover { background: var(--mac-accent-soft); color: var(--mac-text); }
+
+.el-table,
+.el-table th,
+.el-table tr,
+.el-table td { color: var(--mac-text); background: transparent; }
+.el-table::before { background: var(--mac-separator); }
+.el-table th { color: var(--mac-text-secondary); font-size: 12px; font-weight: 600; }
+.el-table td,
+.el-table th.is-leaf { border-bottom-color: var(--mac-separator); }
+.el-table--enable-row-hover .el-table__body tr:hover > td { background: var(--mac-control); }
+
+.el-card {
+  color: var(--mac-text);
+  background: var(--mac-surface-solid);
+  border: 1px solid var(--mac-border);
+  border-radius: var(--mac-radius-lg);
+  box-shadow: var(--mac-shadow-panel);
+}
+.el-card__header { border-bottom-color: var(--mac-separator); font-weight: 600; }
+
+.el-switch__core { border-color: transparent !important; background: rgba(120, 120, 128, .28); }
+.el-switch.is-checked .el-switch__core { background: var(--mac-success); }
+
+.el-message-box {
+  border: 1px solid var(--mac-border);
+  border-radius: var(--mac-radius-lg);
+  background: var(--mac-surface-solid);
+  box-shadow: var(--mac-shadow-popover);
+}
+.el-message-box__title,
+.el-message-box__content { color: var(--mac-text); }
+
+::selection { color: #fff; background: rgba(10, 132, 255, .72); }

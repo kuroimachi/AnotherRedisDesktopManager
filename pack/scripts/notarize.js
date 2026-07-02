@@ -6,6 +6,12 @@ exports.default = async function notarizing(context) {
     return;
   }
 
+  // 本地打包通常不配置 Apple Developer 证书，仅在发布凭据完整时执行公证。
+  if (!process.env.APPLEID || !process.env.APPLEID_PASSWORD) {
+    console.log('Skip macOS notarization: APPLEID or APPLEID_PASSWORD is not configured.');
+    return;
+  }
+
   const appName = context.packager.appInfo.productFilename;
 
   return await notarize({

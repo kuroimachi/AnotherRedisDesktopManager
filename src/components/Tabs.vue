@@ -384,22 +384,35 @@ export default {
 </script>
 
 <style type="text/css">
+  .tabs-container > .el-tabs__header {
+    height: 42px; margin: 0; padding: 7px 12px 0;
+    background: var(--mac-surface-solid); border-bottom: 1px solid var(--mac-separator);
+  }
+  .tabs-container.el-tabs--card > .el-tabs__header .el-tabs__nav {
+    overflow: hidden; border: 1px solid var(--mac-border);
+    border-bottom: 1px solid var(--mac-border); border-radius: var(--mac-radius-sm) var(--mac-radius-sm) 0 0;
+  }
   /*tabs header height*/
   .tabs-container .el-tabs__item {
     height: 34px;
     line-height: 34px;
+    max-width: 260px; color: var(--mac-text-secondary); background: var(--mac-control);
+    border-left-color: var(--mac-separator) !important; font-size: 12px;
+    transition: background-color .16s ease, color .16s ease;
   }
+  .tabs-container .el-tabs__item:hover { color: var(--mac-text); background: var(--mac-control-hover); }
+  .tabs-container .el-tabs__item.is-active { color: var(--mac-text); background: var(--mac-surface-solid); }
   .tabs-container .el-tabs__nav-next, .tabs-container .el-tabs__nav-prev {
     line-height: 34px;
   }
   /*height end*/
 
   .tab-content-wrappe {
-    height: calc(100vh - 67px);
+    height: calc(100vh - 43px);
     overflow-x: hidden;
     overflow-y: auto;
     /*padding-left: 5px;*/
-    padding-right: 8px;
+    padding: 14px 18px 0; box-sizing: border-box; background: var(--mac-bg);
   }
 
   /*tabs context menu*/
@@ -410,10 +423,8 @@ export default {
     left: 0;
     padding: 4px 0;
     z-index: 99999;
-    border-radius: 4px;
-    border: 1px solid var(--ui-border);
-    background: var(--ui-surface);
-    box-shadow: 0 6px 18px rgba(31, 41, 55, .12);
+    border-radius: var(--mac-radius); border: 1px solid var(--mac-border);
+    background: var(--mac-surface-solid); box-shadow: var(--mac-shadow-popover);
   }
   .dark-mode .tabs-context-menu {
     border-color: #4b5d66;
@@ -427,21 +438,21 @@ export default {
     margin: 0;
   }
   .tabs-context-menu ul li:not(:last-child) {
-    border-bottom: 0;
+    border-bottom: 1px solid var(--mac-separator);
   }
 
   .tabs-context-menu ul li {
     font-size: 14px;
     padding: 7px 12px;
     cursor: pointer;
-    color: var(--ui-text);
+    color: var(--mac-text);
   }
   .dark-mode .tabs-context-menu ul li {
     color: #f1f5f9;
   }
 
   .tabs-context-menu ul li:hover {
-    background: var(--ui-hover);
+    background: var(--mac-accent-soft);
   }
   .dark-mode .tabs-context-menu ul li:hover {
     background: #50616b;

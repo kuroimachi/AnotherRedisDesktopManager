@@ -187,6 +187,8 @@ npm run pack:win32
 
 # on mac
 npm run pack:mac
+# Apple 芯片 Mac（仅本地打包，不发布）
+npm run pack:macm1
 
 # on linux
 npm run pack:linux
@@ -324,5 +326,4 @@ npm run pack:linux
 ## Support
 
 [goanother.com](https://goanother.com/) &nbsp; [Producthunt](https://www.producthunt.com/posts/another-redis-desktop-manager) &nbsp; [Download Analysis](https://qii404.me/github-release-statistics/?repo=/qishibo/AnotherRedisDesktopManager/)
-
 

@@ -85,39 +85,39 @@ export default {
 
 <style type="text/css">
   .aside-top-container {
-    margin-right: 10px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 10px 12px 8px;
+    margin: 0;
+    border-bottom: 1px solid var(--mac-separator);
   }
   .aside-top-container .aside-new-connection-container {
-    margin-right: 109px;
+    flex: 1;
+    margin: 0;
+    order: -1;
   }
   .aside-new-connection-container .aside-new-connection-btn {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    background: var(--mac-accent);
+    font-weight: 600;
   }
   .aside-top-container .aside-setting-btn {
-    float: right;
-    width: 44px;
-    margin-right: 5px;
-    border-radius: 4px;
-  }
-
-  .aside-top-container .el-button--primary.is-plain {
-    color: var(--ui-primary);
-    border-color: #b9d6ff;
-    background: #f2f7ff;
-  }
-
-  .aside-top-container .el-button--primary.is-plain:hover,
-  .aside-top-container .el-button--primary.is-plain:focus {
-    color: #fff;
-    border-color: var(--ui-primary);
-    background: var(--ui-primary);
+    flex: 0 0 34px;
+    width: 34px;
+    padding: 8px 0;
+    margin: 0;
+    border: 0;
+    color: var(--mac-text-secondary);
+    background: var(--mac-control);
   }
 
   .dark-mode .aside-top-container .el-button--info {
-    color: #8cc5ff;
-    background: inherit;
+    color: #fff;
+    background: var(--mac-accent);
   }
 </style>

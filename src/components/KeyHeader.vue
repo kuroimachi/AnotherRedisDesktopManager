@@ -316,12 +316,12 @@ export default {
     width: calc(100% - 402px);
     min-width: 218px;
     max-width: 800px;
-    margin-right: 15px;
+    margin-right: 10px;
     margin-bottom: 10px;
   }
   .key-header-item.key-ttl-input {
     width: 218px;
-    margin-right: 15px;
+    margin-right: 10px;
     margin-bottom: 10px;
   }
   
@@ -336,6 +336,11 @@ export default {
 
   .key-header-item.key-header-btn-con .el-button+.el-button {
     margin-left: 4px;
+  }
+  .key-header-item.key-header-btn-con .el-button {
+    width: 34px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   /*refresh btn rotating*/

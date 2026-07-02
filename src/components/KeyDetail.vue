@@ -106,10 +106,12 @@ export default {
     /*padding-left: 5px;*/
   }
   .key-header-info {
-    margin-top: 6px;
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--mac-separator);
   }
   .key-content-container {
-    margin-top: 12px;
+    margin-top: 14px;
   }
 
   .content-more-container {
@@ -137,7 +139,7 @@ export default {
   }
   /*  vxe table radius*/
   .key-content-container .content-table-container .vxe-table--border-line {
-    border-radius: 4px;
+    border-radius: var(--mac-radius);
   }
 
   /*key-content-string such as String,ReJSON*/
