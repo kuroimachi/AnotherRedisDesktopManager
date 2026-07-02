@@ -46,7 +46,11 @@
       @node-keydown="nodeKeyDown"
       highlight-current
     >
-      <span class="key-list-custom-node" slot-scope="{node, data}" :title="node.label">
+      <span
+        class="key-list-custom-node"
+        :class="node.isLeaf ? 'key-list-leaf' : 'key-list-folder'"
+        slot-scope="{node, data}"
+        :title="node.label">
         <i v-if="!node.isLeaf" :class="node.expanded?'fa fa-folder-open':'fa fa-folder'"></i>
         <span>{{ node.label }}</span>
         <span v-if="!node.isLeaf" class="key-list-count">({{ data.keyCount }})</span>
@@ -506,6 +510,23 @@ export default {
   line-height: 22px;
 }
 
+/* 用低饱和颜色区分文件夹与 key，避免树列表显得杂乱。 */
+.key-list-vtree .key-list-custom-node.key-list-folder {
+  color: #75633f;
+}
+.key-list-vtree .key-list-custom-node.key-list-leaf {
+  color: #287f91;
+}
+.dark-mode .key-list-vtree .key-list-custom-node.key-list-folder {
+  color: #d0b77e;
+}
+.dark-mode .key-list-vtree .key-list-custom-node.key-list-leaf {
+  color: #78c5d3;
+}
+.key-list-vtree .el-tree-node.is-current > .el-tree-node__content .key-list-custom-node {
+  color: var(--ui-primary);
+}
+
 /*checkbox*/
 .key-list-vtree .el-tree-node__content>label.el-checkbox {
   margin-right: 4px;
@@ -532,11 +553,11 @@ export default {
 
 /*folder icon*/
 .key-list-vtree .key-list-custom-node .fa {
-  color: #848a90;
+  color: #b08b45;
   font-size: 115%;
 }
 .dark-mode .key-list-vtree .key-list-custom-node .fa {
-  color: #9ea4a9;
+  color: #d0ae68;
 }
 
 /*folder keys count*/

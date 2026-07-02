@@ -137,6 +137,27 @@ export default {
     overflow: hidden !important;
     line-height: 34px;
   }
+  .key-content-container .content-table-container .key-row-action.el-button--text {
+    width: 28px;
+    min-height: 28px;
+    margin: 0 2px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    color: var(--mac-text-secondary);
+    background: transparent;
+    font-size: 15px;
+  }
+  .key-content-container .content-table-container .key-row-action.el-button--text:hover,
+  .key-content-container .content-table-container .key-row-action.el-button--text:focus {
+    color: var(--mac-text);
+    background: var(--mac-control-hover);
+  }
+  .key-content-container .content-table-container .key-row-action-danger.el-button--text:hover,
+  .key-content-container .content-table-container .key-row-action-danger.el-button--text:focus {
+    color: var(--mac-danger);
+    background: rgba(255, 59, 48, .1);
+  }
   /*  vxe table radius*/
   .key-content-container .content-table-container .vxe-table--border-line {
     border-radius: var(--mac-radius);

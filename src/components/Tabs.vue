@@ -5,9 +5,9 @@
         v-for="(item) in tabs"
         :key="item.name"
         :name="item.name">
-        <span slot="label" :title="item.title">
+        <span slot="label" class="tab-label" :title="item.title">
           <i :class="iconNameByComponent(item.component)"></i>
-          <span>{{ item.label }}</span>
+          <span class="tab-label-text">{{ item.label }}</span>
         </span>
 
         <Status v-if="item.component === 'status'" :client='item.client' class='tab-content-wrappe' :hotKeyScope='item.name'></Status>
@@ -386,22 +386,54 @@ export default {
 <style type="text/css">
   .tabs-container > .el-tabs__header {
     height: 42px; margin: 0; padding: 7px 12px 0;
-    background: var(--mac-surface-solid); border-bottom: 1px solid var(--mac-separator);
+    background: var(--mac-sidebar); border-bottom: 1px solid var(--mac-separator);
   }
   .tabs-container.el-tabs--card > .el-tabs__header .el-tabs__nav {
-    overflow: hidden; border: 1px solid var(--mac-border);
-    border-bottom: 1px solid var(--mac-border); border-radius: var(--mac-radius-sm) var(--mac-radius-sm) 0 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
   }
   /*tabs header height*/
   .tabs-container .el-tabs__item {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
     height: 34px;
     line-height: 34px;
-    max-width: 260px; color: var(--mac-text-secondary); background: var(--mac-control);
-    border-left-color: var(--mac-separator) !important; font-size: 12px;
-    transition: background-color .16s ease, color .16s ease;
+    max-width: 260px; margin: 0 2px;
+    color: var(--mac-text-secondary); background: transparent;
+    border: 0 !important; border-radius: 10px 10px 0 0; font-size: 12px;
+    transition: background-color .16s ease, color .16s ease, box-shadow .16s ease;
   }
-  .tabs-container .el-tabs__item:hover { color: var(--mac-text); background: var(--mac-control-hover); }
-  .tabs-container .el-tabs__item.is-active { color: var(--mac-text); background: var(--mac-surface-solid); }
+  .tabs-container .el-tabs__item .tab-label {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .tabs-container .el-tabs__item .tab-label > i,
+  .tabs-container .el-tabs__item .el-icon-close {
+    flex: 0 0 auto;
+  }
+  .tabs-container .el-tabs__item .tab-label-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tabs-container .el-tabs__item:hover {
+    color: var(--mac-text);
+    background: var(--mac-control-hover);
+  }
+  .tabs-container .el-tabs__item.is-active {
+    color: var(--mac-text);
+    background: var(--mac-surface-solid);
+    box-shadow:
+      0 0 0 1px var(--mac-border),
+      0 -2px 6px rgba(0, 0, 0, .06),
+      0 1px 0 var(--mac-surface-solid);
+  }
   .tabs-container .el-tabs__nav-next, .tabs-container .el-tabs__nav-prev {
     line-height: 34px;
   }
