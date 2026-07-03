@@ -1,6 +1,11 @@
 <template>
   <!-- setting dialog -->
-  <el-dialog :title="$t('message.settings')" :visible.sync="visible" custom-class="setting-main-dialog">
+  <el-dialog
+    :title="$t('message.settings')"
+    :visible.sync="visible"
+    :close-on-click-modal="false"
+    custom-class="setting-main-dialog"
+    append-to-body>
     <el-form label-position="top" size="mini">
 
       <el-card :header="$t('message.ui_settings')" class="setting-card">
