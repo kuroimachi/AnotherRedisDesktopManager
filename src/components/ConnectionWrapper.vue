@@ -244,7 +244,7 @@ export default {
 <style type="text/css">
   /*menu ul*/
   .connection-menu {
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     padding-right: 0;
     border-right: 0;
     background-color: transparent;
@@ -254,7 +254,7 @@ export default {
     background: transparent;
     border-radius: var(--mac-radius-sm);
     box-shadow: none;
-    transition: background-color .16s ease;
+    transition: background-color .16s ease, color .16s ease;
     overflow: hidden;
   }
 
@@ -270,7 +270,7 @@ export default {
   }
 
   .dark-mode .connection-menu li.el-submenu:hover {
-    background-color: #425057;
+    background-color: var(--mac-control-hover);
   }
 
   .connection-menu.menu-with-custom-color li.el-submenu {
@@ -280,10 +280,10 @@ export default {
   }
 
   .connection-menu .el-submenu__title {
-    padding: 7px 9px;
+    padding: 8px 9px;
     height: auto;
     line-height: normal;
-    transition: all 0.3s ease;
+    transition: background-color .16s ease, color .16s ease;
   }
 
   .connection-menu .el-submenu__title:hover {
@@ -291,7 +291,7 @@ export default {
   }
 
   .dark-mode .connection-menu .el-submenu__title {
-    color: #f1f5f9;
+    color: var(--mac-text);
   }
 
   .dark-mode .connection-menu .el-submenu__title:hover {
@@ -304,7 +304,7 @@ export default {
   }
 
   .dark-mode .connection-menu .el-submenu__icon-arrow {
-    color: #94a3b8;
+    color: var(--mac-text-tertiary);
   }
 
   /*this error shows first*/

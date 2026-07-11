@@ -98,21 +98,21 @@ html {
   height: 100%;
 }
 :root {
-  --ui-primary: #1677ff;
-  --ui-primary-hover: #4096ff;
-  --ui-text: #1f2937;
-  --ui-text-secondary: #606266;
-  --ui-text-muted: #909399;
-  --ui-border: #e5e7eb;
-  --ui-border-strong: #dcdfe6;
-  --ui-bg: #f5f7fb;
+  --ui-primary: #2f6f62;
+  --ui-primary-hover: #255c51;
+  --ui-text: #252826;
+  --ui-text-secondary: #696d69;
+  --ui-text-muted: #949894;
+  --ui-border: #dedfda;
+  --ui-border-strong: #cfd1cb;
+  --ui-bg: #f7f7f5;
   --ui-surface: #fff;
-  --ui-hover: #eef5ff;
-  --ui-selected: #e6f0ff;
-  --ui-dark-bg: #263238;
-  --ui-dark-surface: #324148;
-  --ui-dark-hover: #40515a;
-  --ui-dark-border: #4b5d66;
+  --ui-hover: #edf2ef;
+  --ui-selected: #e0ece7;
+  --ui-dark-bg: #1e211f;
+  --ui-dark-surface: #292d2a;
+  --ui-dark-hover: #363c37;
+  --ui-dark-border: #465048;
 }
 body {
   height: 100%;
@@ -200,7 +200,6 @@ li .list-index {
   position: relative;
   user-select: none;
   background: var(--mac-sidebar);
-  backdrop-filter: saturate(180%) blur(24px);
   /*max-width: 50%;*/
 }
 .aside-connection {
@@ -211,8 +210,8 @@ li .list-index {
   background: var(--ui-surface);
 }
 .dark-mode .aside-connection {
-  border-right-color: var(--ui-dark-border);
-  background: var(--ui-dark-bg);
+  border-right-color: var(--mac-separator);
+  background: var(--mac-sidebar);
 }
 /*fix right container imdraggable*/
 .right-main-container {

@@ -86,9 +86,9 @@ export default {
 <style type="text/css">
   .aside-top-container {
     display: flex;
-    gap: 6px;
+    gap: 5px;
     align-items: center;
-    padding: 10px 12px 8px;
+    padding: 12px 12px 10px;
     margin: 0;
     border-bottom: 1px solid var(--mac-separator);
   }
@@ -101,15 +101,16 @@ export default {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: 0;
+    border: 1px solid transparent;
     color: #fff;
     background: var(--mac-accent);
     font-weight: 600;
   }
   .aside-top-container .aside-setting-btn {
-    flex: 0 0 34px;
-    width: 34px;
-    padding: 8px 0;
+    flex: 0 0 32px;
+    width: 32px;
+    min-height: 32px;
+    padding: 7px 0;
     margin: 0;
     border: 0;
     color: var(--mac-text-secondary);

@@ -1,44 +1,44 @@
 :root {
-  --mac-bg: #f5f5f7;
-  --mac-surface: rgba(255, 255, 255, 0.82);
+  --mac-bg: #f7f7f5;
+  --mac-surface: rgba(255, 255, 255, 0.9);
   --mac-surface-solid: #ffffff;
-  --mac-sidebar: rgba(239, 240, 242, 0.88);
-  --mac-control: rgba(118, 118, 128, 0.08);
-  --mac-control-hover: rgba(118, 118, 128, 0.14);
-  --mac-border: rgba(60, 60, 67, 0.16);
-  --mac-separator: rgba(60, 60, 67, 0.12);
-  --mac-text: #1d1d1f;
-  --mac-text-secondary: #6e6e73;
-  --mac-text-tertiary: #98989d;
-  --mac-accent: #0a84ff;
-  --mac-accent-hover: #0077ed;
-  --mac-accent-soft: rgba(10, 132, 255, 0.12);
+  --mac-sidebar: #f1f1ee;
+  --mac-control: rgba(46, 50, 48, 0.055);
+  --mac-control-hover: rgba(46, 50, 48, 0.1);
+  --mac-border: rgba(46, 50, 48, 0.15);
+  --mac-separator: rgba(46, 50, 48, 0.1);
+  --mac-text: #252826;
+  --mac-text-secondary: #696d69;
+  --mac-text-tertiary: #949894;
+  --mac-accent: #2f6f62;
+  --mac-accent-hover: #255c51;
+  --mac-accent-soft: rgba(47, 111, 98, 0.13);
   --mac-danger: #ff3b30;
   --mac-success: #30b050;
   --mac-radius-sm: 6px;
   --mac-radius: 9px;
   --mac-radius-lg: 13px;
-  --mac-shadow-popover: 0 18px 50px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
-  --mac-shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.04), 0 7px 24px rgba(0, 0, 0, 0.05);
+  --mac-shadow-popover: 0 12px 32px rgba(37, 40, 38, 0.12);
+  --mac-shadow-panel: 0 1px 2px rgba(37, 40, 38, 0.035);
 }
 
 .dark-mode {
-  --mac-bg: #1c1c1e;
-  --mac-surface: rgba(44, 44, 46, 0.86);
-  --mac-surface-solid: #2c2c2e;
-  --mac-sidebar: rgba(36, 36, 38, 0.9);
-  --mac-control: rgba(255, 255, 255, 0.08);
-  --mac-control-hover: rgba(255, 255, 255, 0.13);
-  --mac-border: rgba(255, 255, 255, 0.15);
-  --mac-separator: rgba(255, 255, 255, 0.1);
-  --mac-text: #f5f5f7;
-  --mac-text-secondary: #aeaeb2;
-  --mac-text-tertiary: #8e8e93;
-  --mac-accent: #0a84ff;
-  --mac-accent-hover: #409cff;
-  --mac-accent-soft: rgba(10, 132, 255, 0.2);
-  --mac-shadow-popover: 0 20px 60px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.28);
-  --mac-shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.22), 0 8px 26px rgba(0, 0, 0, 0.18);
+  --mac-bg: #1e211f;
+  --mac-surface: rgba(40, 44, 41, 0.92);
+  --mac-surface-solid: #292d2a;
+  --mac-sidebar: #242824;
+  --mac-control: rgba(255, 255, 255, 0.07);
+  --mac-control-hover: rgba(255, 255, 255, 0.115);
+  --mac-border: rgba(255, 255, 255, 0.13);
+  --mac-separator: rgba(255, 255, 255, 0.085);
+  --mac-text: #edf0eb;
+  --mac-text-secondary: #b6bcb5;
+  --mac-text-tertiary: #858d85;
+  --mac-accent: #71a99a;
+  --mac-accent-hover: #8abdaf;
+  --mac-accent-soft: rgba(113, 169, 154, 0.19);
+  --mac-shadow-popover: 0 14px 34px rgba(0, 0, 0, 0.28);
+  --mac-shadow-panel: 0 1px 2px rgba(0, 0, 0, 0.16);
 }
 
 html, body {
@@ -62,7 +62,7 @@ select {
   color: var(--mac-text);
   background: var(--mac-surface-solid);
   font-weight: 500;
-  transition: background-color .16s ease, border-color .16s ease, box-shadow .16s ease, transform .08s ease;
+  transition: background-color .16s ease, border-color .16s ease, color .16s ease, transform .08s ease;
 }
 
 .el-button:hover,
@@ -92,8 +92,8 @@ select {
   background: var(--mac-surface-solid);
   border: 1px solid var(--mac-border);
   border-radius: var(--mac-radius-sm);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .025);
-  transition: border-color .16s ease, box-shadow .16s ease;
+  box-shadow: none;
+  transition: border-color .16s ease, background-color .16s ease, box-shadow .16s ease;
 }
 .el-input__inner:hover,
 .el-textarea__inner:hover { border-color: rgba(60, 60, 67, .28); }
@@ -126,7 +126,7 @@ select {
   box-shadow: var(--mac-shadow-popover);
 }
 .el-dialog__header {
-  padding: 18px 22px 16px;
+  padding: 17px 22px 15px;
   border-bottom: 1px solid var(--mac-separator);
   text-align: center;
 }
@@ -134,7 +134,7 @@ select {
 .el-dialog__headerbtn { top: 17px; right: 18px; }
 .el-dialog__headerbtn .el-dialog__close { color: var(--mac-text-tertiary); }
 .el-dialog__body { color: var(--mac-text); }
-.el-dialog__footer { padding: 13px 20px; border-top: 1px solid var(--mac-separator); background: var(--mac-control); }
+.el-dialog__footer { padding: 13px 20px; border-top: 1px solid var(--mac-separator); background: rgba(46, 50, 48, .025); }
 .v-modal { background: rgba(0, 0, 0, .32); backdrop-filter: blur(3px); }
 
 .el-dropdown-menu,
@@ -168,7 +168,7 @@ select {
   background: var(--mac-surface-solid);
   border: 1px solid var(--mac-border);
   border-radius: var(--mac-radius-lg);
-  box-shadow: var(--mac-shadow-panel);
+  box-shadow: none;
 }
 .el-card__header { border-bottom-color: var(--mac-separator); font-weight: 600; }
 

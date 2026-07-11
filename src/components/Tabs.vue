@@ -385,7 +385,7 @@ export default {
 
 <style type="text/css">
   .tabs-container > .el-tabs__header {
-    height: 42px; margin: 0; padding: 7px 12px 0;
+    height: 43px; margin: 0; padding: 8px 12px 0;
     background: var(--mac-sidebar); border-bottom: 1px solid var(--mac-separator);
   }
   .tabs-container.el-tabs--card > .el-tabs__header .el-tabs__nav {
@@ -401,10 +401,10 @@ export default {
     box-sizing: border-box;
     height: 34px;
     line-height: 34px;
-    max-width: 260px; margin: 0 2px;
+    max-width: 260px; margin: 0 1px;
     color: var(--mac-text-secondary); background: transparent;
-    border: 0 !important; border-radius: 10px 10px 0 0; font-size: 12px;
-    transition: background-color .16s ease, color .16s ease, box-shadow .16s ease;
+    border: 0 !important; border-radius: 6px 6px 0 0; font-size: 12px;
+    transition: background-color .16s ease, color .16s ease;
   }
   .tabs-container .el-tabs__item .tab-label {
     display: inline-flex;
@@ -429,10 +429,7 @@ export default {
   .tabs-container .el-tabs__item.is-active {
     color: var(--mac-text);
     background: var(--mac-surface-solid);
-    box-shadow:
-      0 0 0 1px var(--mac-border),
-      0 -2px 6px rgba(0, 0, 0, .06),
-      0 1px 0 var(--mac-surface-solid);
+    box-shadow: 0 0 0 1px var(--mac-border), 0 1px 0 var(--mac-surface-solid);
   }
   .tabs-container .el-tabs__nav-next, .tabs-container .el-tabs__nav-prev {
     line-height: 34px;
@@ -440,7 +437,7 @@ export default {
   /*height end*/
 
   .tab-content-wrappe {
-    height: calc(100vh - 43px);
+    height: calc(100vh - 44px);
     overflow-x: hidden;
     overflow-y: auto;
     /*padding-left: 5px;*/

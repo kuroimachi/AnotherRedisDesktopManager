@@ -241,11 +241,11 @@ export default {
     height: calc(100vh - 61px);
     overflow-y: auto;
     margin-top: 0;
-    padding: 10px 9px 0;
+    padding: 12px 10px 0;
   }
 
   .connections-wrap .filter-input {
-    margin: 0 3px 10px;
+    margin: 0 2px 12px;
   }
 
   .connections-wrap .filter-input .el-input {
@@ -272,18 +272,18 @@ export default {
 
   /* Group styles */
   .connections-list .connection-group {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     background-color: transparent;
   }
 
   .group-header {
     display: flex;
     align-items: center;
-    padding: 6px 9px;
+    padding: 5px 8px;
     background: transparent;
     border-radius: var(--mac-radius-sm);
     cursor: pointer;
-    transition: background-color .16s ease;
+    transition: background-color .16s ease, color .16s ease;
     font-weight: 500;
     user-select: none;
     box-shadow: none;
@@ -319,9 +319,10 @@ export default {
 
   .group-name {
     flex: 1;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--mac-text-secondary);
+    letter-spacing: .02em;
   }
 
   .dark-mode .group-name {
@@ -332,7 +333,8 @@ export default {
     font-size: 12px;
     font-weight: 400;
     color: var(--mac-text-tertiary);
-    margin-left: 8px;
+    margin-left: 6px;
+    font-variant-numeric: tabular-nums;
     background: transparent;
     padding: 0;
     transition: all 0.3s ease;
